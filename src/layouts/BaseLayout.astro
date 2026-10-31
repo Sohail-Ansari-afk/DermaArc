@@ -1,0 +1,205 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  keywords?: string;
+}
+
+const defaultKeywords =
+  "digital marketing agency for dermatologists, digital marketing for skin clinics, dermatology marketing agency, patient acquisition for aesthetic clinics, cosmetic dermatology marketing, marketing agency for laser clinics, website design for dermatologists, skin clinic website design company, landing page design for dermatologists, medical website development India, high converting clinic landing page, meta ads for dermatologists, lead generation for dermatologists, facebook ads for skin clinics, instagram ads for cosmetic clinics, paid ads for hair PRP and laser clinics, google business profile for dermatologists, local seo for dermatologists, google my business optimization for doctors, how to rank skin clinic on google maps, seo for skin clinics, instagram marketing for dermatologists, social media management for skin clinics, doctor personal branding agency, reel scripts for dermatologists, medical social media agency, dermatology marketing agency in Pune, digital marketing for doctors in Mumbai, skin clinic marketing agency Bangalore, healthcare digital marketing agency Delhi NCR, medical marketing company India, how to get more patients for dermatology clinic, how to market hydrafacial and chemical peels, NMC social media guidelines for doctors in India, why skin clinic leads ghost on whatsapp, meta ad compliance for before and after photos";
+
+const {
+  title,
+  description = "DermaArc is India's premier digital marketing agency for dermatologists and skin clinics. 15–30+ high-margin patient consultations every month via hyper-local Meta ads, Google Maps SEO, and high-converting clinic funnels.",
+  ogImage = "/web-app-manifest-512x512.png",
+  canonicalURL = Astro.url.href,
+  keywords = defaultKeywords,
+} = Astro.props;
+
+const siteName = "DermaArc";
+const fullTitle =
+  title === "Home" || title === "Digital Marketing Agency for Dermatologists"
+    ? `Digital Marketing Agency for Dermatologists | ${siteName}`
+    : `${title} | ${siteName}`;
+
+const formattedOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : `https://dermaarc.com${ogImage.startsWith("/") ? ogImage : `/${ogImage}`}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Prevent Theme Flash -->
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+
+    <!-- SEO & Crawler Directives -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="Sohail Ansari, DermaArc" />
+
+    <!-- AI Assistants & LLM Crawlers Discovery -->
+    <meta name="ai-agent" content="enabled" />
+    <meta name="ai-content-declarations" content="original" />
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context for AI Assistants" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Open Graph (Facebook / Meta / WhatsApp / LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={formattedOgImage} />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="DermaArc — Digital Marketing Agency for Dermatologists" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@derma.arc" />
+    <meta name="twitter:creator" content="@derma.arc" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={formattedOgImage} />
+    <meta name="twitter:image:alt" content="DermaArc — Digital Marketing Agency for Dermatologists" />
+
+    <!-- Structured Data (JSON-LD Schema) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://dermaarc.com/#agency",
+          "name": "DermaArc",
+          "alternateName": "DermaArc — Digital Marketing Agency for Dermatologists",
+          "description": "Patient acquisition and digital marketing agency built exclusively for dermatologists, skin clinics, and aesthetic practices. 15–30+ high-margin patient consultations every month via hyper-local Meta ads, Google Maps SEO, and high-converting clinic funnels.",
+          "url": "https://dermaarc.com",
+          "logo": "https://dermaarc.com/favicon.svg",
+          "image": formattedOgImage,
+          "email": "official@dermaarc.com",
+          "priceRange": "₹30,000/month",
+          "founder": {
+            "@type": "Person",
+            "name": "Sohail Ansari",
+            "jobTitle": "Founder & Head of Patient Acquisition"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          },
+          "areaServed": [
+            { "@type": "City", "name": "Pune" },
+            { "@type": "City", "name": "Mumbai" },
+            { "@type": "City", "name": "Bangalore" },
+            { "@type": "City", "name": "Delhi NCR" },
+            { "@type": "City", "name": "Hyderabad" },
+            { "@type": "Country", "name": "India" }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/derma.arc/"
+          ],
+          "knowsAbout": [
+            "digital marketing agency for dermatologists",
+            "digital marketing for skin clinics",
+            "dermatology marketing agency",
+            "patient acquisition for aesthetic clinics",
+            "cosmetic dermatology marketing",
+            "marketing agency for laser clinics",
+            "website design for dermatologists",
+            "skin clinic website design company",
+            "meta ads for dermatologists",
+            "local seo for dermatologists",
+            "google business profile for dermatologists",
+            "instagram marketing for dermatologists"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "The 4-Pillar Dermatology Patient Acquisition System",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Conversion-First Clinic Websites & Funnels",
+                  "description": "Sub-2-second procedure landing pages with 1-tap WhatsApp booking."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Hyper-Local Meta Ads for Dermatologists",
+                  "description": "5-10 km radius Meta & Instagram ads with real-time front desk WhatsApp lead alerts."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Google Business Profile & Walk-In Local SEO",
+                  "description": "Top-3 Google Maps ranking, geo-tagged clinic photo optimization, and review QR stands."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Instagram Authority Content & NMC-Compliant Reel Scripts",
+                  "description": "12-15 monthly clinical posts and 90-minute batch recording scripts."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://dermaarc.com/#website",
+          "url": "https://dermaarc.com",
+          "name": "DermaArc",
+          "description": "Digital Marketing Agency for Dermatologists and Skin Clinics",
+          "publisher": {
+            "@id": "https://dermaarc.com/#agency"
+          }
+        }
+      ]
+    })} />
+
+    <!-- Fonts: Bricolage Grotesque + DM Sans from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

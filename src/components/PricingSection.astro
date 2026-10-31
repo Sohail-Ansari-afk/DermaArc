@@ -1,0 +1,97 @@
+---
+// Pricing Section — Transparent ₹30,000/month pricing
+const included = [
+  "Conversion-first clinic website / landing pages",
+  "Hyper-local Meta ad campaigns (Instagram + Facebook)",
+  "Google Business Profile optimisation & local SEO",
+  "12–15 Instagram posts + Reel scripts per month",
+  "1-tap WhatsApp booking integration",
+  "Front-desk WhatsApp lead alerts",
+  "5-star review QR code stands setup",
+  "Monthly performance report (Inquiries, CPL, Walk-Ins)",
+  "NMC / medical advertising compliance",
+  "Dedicated account manager",
+];
+
+const notIncluded = [
+  "Ad spend (recommended ₹100–150/day to start)",
+  "Domain & hosting fees",
+  "Professional photography / videography",
+];
+---
+
+<section id="pricing" class="section-lg">
+  <div class="container-main">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">Transparent pricing</p>
+      <h2 class="font-display font-bold text-ink mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.13;">
+        One plan. Everything included.
+      </h2>
+      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+        No hidden fees, no upsells, no "packages". Every clinic gets the full 4-Pillar System for one predictable monthly retainer.
+      </p>
+    </div>
+
+    <!-- Pricing Card -->
+    <div class="max-w-2xl mx-auto">
+      <div class="card-featured p-5 sm:p-8 md:p-12">
+        <!-- Badge -->
+        <div class="flex items-center gap-3 mb-6">
+          <span class="badge-accent">All-Inclusive</span>
+          <span class="text-text-muted font-body text-xs">No contracts · Cancel anytime</span>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-8">
+          <div class="flex items-baseline gap-2">
+            <span class="font-display font-bold text-ink" style="font-size: clamp(48px, 6vw, 72px); line-height: 1.0;">₹30,000</span>
+            <span class="text-text-muted font-body text-lg font-light">/month</span>
+          </div>
+          <p class="text-text-muted font-body text-sm mt-2">
+            + GST · Recommended ad spend: ₹3,000–4,500/month
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-hairline mb-8"></div>
+
+        <!-- What's Included -->
+        <h4 class="font-display text-base font-bold text-ink mb-4">Everything in the 4-Pillar System:</h4>
+        <ul class="space-y-3 mb-8">
+          {included.map((item) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-accent-teal shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span class="text-ink font-body text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Not Included -->
+        <h4 class="font-display text-sm font-bold text-text-muted mb-3">Paid separately:</h4>
+        <ul class="space-y-2 mb-8">
+          {notIncluded.map((item) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-4 h-4 text-text-faint shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-text-muted font-body text-sm">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- CTA -->
+        <a href="https://wa.me/919999999999?text=Hi%20DermaArc%2C%20I%27m%20interested%20in%20the%20₹30%2C000%2Fmonth%20plan." target="_blank" rel="noopener noreferrer" class="btn-primary w-full text-center h-14 text-base">
+          Start Growing Your Clinic →
+        </a>
+
+        <p class="text-text-faint font-body text-xs text-center mt-4">
+          No lock-in contract · Results in 30 days · Cancel anytime
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+

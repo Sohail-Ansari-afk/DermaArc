@@ -1,0 +1,73 @@
+---
+// Clinic Types — Who We Serve
+const clinicTypes = [
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>`,
+    title: "Clinical Dermatology Practices.",
+    description: "MD / MBBS dermatologists treating acne, eczema, psoriasis, fungal infections, and clinical skin conditions who want to dominate local 'near me' searches.",
+    treatments: ["Acne Treatment", "Eczema & Psoriasis", "Skin Cancer Screening", "Fungal Infections"],
+    gradient: "from-accent-teal to-accent-aqua",
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`,
+    title: "Cosmetic & Laser Clinics.",
+    description: "Aesthetic practices looking to fill appointment slots for high-ticket procedures — acne scar treatments, laser hair reduction, chemical peels, and anti-aging therapies.",
+    treatments: ["Acne Scar Subcision", "Laser Hair Reduction", "Chemical Peels", "HydraFacials"],
+    gradient: "from-accent-gold to-accent-orange",
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>`,
+    title: "Hair Restoration & PRP Studios.",
+    description: "Trichology and hair clinics scaling inquiries for Hair PRP, GFC therapy, hair transplants, and advanced hair restoration procedures.",
+    treatments: ["Hair PRP Therapy", "GFC Therapy", "Hair Transplant", "Scalp Micropigmentation"],
+    gradient: "from-accent-orange to-accent-coral",
+  },
+];
+---
+
+<section id="clinic-types" class="section-lg bg-canvas-soft">
+  <div class="container-main">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">Who we serve</p>
+      <h2 class="font-display font-bold text-ink mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.13;">
+        Built for three types of clinics.
+      </h2>
+      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+        Whether you run a clinical practice, a cosmetic laser clinic, or a hair restoration studio — DermaArc speaks your language and knows your patients.
+      </p>
+    </div>
+
+    <!-- Clinic Type Cards -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {clinicTypes.map((clinic) => (
+        <div class="card bg-canvas group hover:-translate-y-1 transition-all duration-300">
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-[24px] bg-canvas-soft group-hover:bg-canvas flex items-center justify-center mb-6 transition-colors duration-300">
+            <Fragment set:html={clinic.icon} />
+          </div>
+
+          <!-- Title -->
+          <h3 class="font-display text-xl font-bold text-ink mb-3">
+            {clinic.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-text-muted font-body text-sm leading-relaxed mb-6">
+            {clinic.description}
+          </p>
+
+          <!-- Treatment Tags -->
+          <div class="flex flex-wrap gap-2">
+            {clinic.treatments.map((treatment) => (
+              <span class="inline-flex items-center h-7 px-3 rounded-full bg-canvas-soft text-text-muted text-xs font-semibold font-body">
+                {treatment}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+

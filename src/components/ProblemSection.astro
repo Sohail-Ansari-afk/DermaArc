@@ -1,0 +1,69 @@
+---
+// Problem Section — Why dermatologists struggle online in India
+const problems = [
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>`,
+    title: "Med spas are outspending you 3-to-1.",
+    description: "Non-physician aesthetic clinics flood Instagram and Google with aggressive ads. Your board-certified credentials get buried under their marketing budgets.",
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>`,
+    title: "53% of patients bounce on mobile.",
+    description: "Most clinic websites load in 6+ seconds. Google data shows 53% of mobile visitors leave if a page takes over 3 seconds — that's half your potential patients, gone.",
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+    title: "43% book after clinic hours.",
+    description: "Nearly half of all patient inquiries happen after 7 PM when your front desk is closed. Without WhatsApp automation, those leads go to the competitor who responds first.",
+  },
+];
+---
+
+<section id="problem" class="section-lg">
+  <div class="container-main">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">The problem</p>
+      <h2 class="font-display font-bold text-ink mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.13;">
+        Great dermatologists.<br class="hidden sm:block" />
+        Invisible online.
+      </h2>
+      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+        You spent years earning your MD. But online, aggressive med spa marketing is drowning out board-certified practices — and it's costing you patients every single day.
+      </p>
+    </div>
+
+    <!-- Problem Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {problems.map((problem) => (
+        <div class="card-featured p-8">
+          <!-- Icon -->
+          <div class="w-12 h-12 rounded-full bg-canvas flex items-center justify-center mb-6">
+            <Fragment set:html={problem.icon} />
+          </div>
+
+          <!-- Title -->
+          <h3 class="font-display text-xl font-bold text-ink mb-3">
+            {problem.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-text-muted font-body text-sm leading-relaxed">
+            {problem.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bridge Statement -->
+    <div class="text-center mt-16">
+      <p class="text-text-muted font-body text-base max-w-xl mx-auto mb-6">
+        DermaArc fixes this. We replace your disconnected freelancers with one unified growth engine — built exclusively for dermatologists.
+      </p>
+      <a href="#clinic-types" class="btn-soft">
+        See who we serve ↓
+      </a>
+    </div>
+  </div>
+</section>
+

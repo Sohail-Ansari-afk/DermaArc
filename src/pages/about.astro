@@ -1,0 +1,127 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import CTASection from "../components/CTASection.astro";
+
+const values = [
+  {
+    title: "Dermatology-only.",
+    description: "We don't work with restaurants, gyms, or general clinics. 100% of our attention, knowledge, and resources go to dermatologists. We know your patients, your treatments, and your compliance requirements.",
+  },
+  {
+    title: "Zero vanity metrics.",
+    description: "We report on total inquiries, cost per lead, and clinic walk-ins. Not impressions, not reach, not engagement rate. Instagram followers don't pay your rent — bookings do.",
+  },
+  {
+    title: "One system, not five freelancers.",
+    description: "Website, ads, Google Maps, Instagram — all managed in-house under one retainer. No finger-pointing between vendors. One team accountable for one number: patients booked.",
+  },
+  {
+    title: "Micro-budget efficient.",
+    description: "We've proven ₹14.94 cost per lead on starter budgets of ₹100–150/day. You don't need lakhs in ad spend to fill your clinic — you need the right system.",
+  },
+];
+---
+
+<PageLayout
+  title="About"
+  description="DermaArc is a founder-led patient acquisition agency built exclusively for dermatologists by Sohail Ansari in Pune. Learn our story and what makes us different."
+>
+  <!-- Hero -->
+  <section class="section-lg">
+    <div class="container-main">
+      <div class="max-w-3xl">
+        <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">About DermaArc</p>
+        <h1 class="font-display font-bold text-ink mb-6">
+          One founder. One mission.<br />
+          <span class="gradient-text">Fill dermatology clinics.</span>
+        </h1>
+        <p class="text-text-muted font-body text-lg font-light leading-relaxed mb-6">
+          DermaArc was founded by <strong class="text-ink font-semibold">Sohail Ansari</strong> in Pune, Maharashtra with a simple observation: dermatologists are brilliant clinicians but terrible at digital marketing — and the generic agencies they hire don't understand dermatology.
+        </p>
+        <p class="text-text-muted font-body text-base leading-relaxed mb-6">
+          The result? Board-certified dermatologists lose patients to med spas that outspend them online. Clinics pay three different freelancers and get zero accountability. Instagram posts go out with no strategy. Google listings sit unoptimised while competitors rank above them.
+        </p>
+        <p class="text-text-muted font-body text-base leading-relaxed">
+          DermaArc exists to fix this. We've built one unified growth engine — the 4-Pillar System — that replaces disconnected freelancers with a single team, a single retainer, and a single metric that matters: patients booked.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="section bg-canvas-soft">
+    <div class="container-main">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-5xl mx-auto">
+        <!-- Photo placeholder -->
+        <div class="lg:col-span-4">
+          <div class="w-full aspect-square max-w-[280px] mx-auto rounded-[24px] bg-canvas flex items-center justify-center border border-hairline-soft">
+            <div class="text-center">
+              <div class="w-24 h-24 rounded-full bg-primary mx-auto mb-4 flex items-center justify-center">
+                <span class="text-on-primary font-display text-4xl font-bold">S</span>
+              </div>
+              <p class="text-ink font-display text-lg font-bold">Sohail Ansari</p>
+              <p class="gradient-text font-body text-sm font-semibold">Founder & CEO</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="lg:col-span-8">
+          <h2 class="font-display font-bold text-ink mb-4">Meet the founder.</h2>
+          <p class="text-text-muted font-body text-base leading-relaxed mb-4">
+            Sohail Ansari built DermaArc after seeing first-hand how dermatology clinics were being outmarketed by med spas and generic aesthetic clinics. With a background in performance marketing and a deep understanding of the Indian healthcare landscape, he designed the 4-Pillar System specifically for the challenges dermatologists face.
+          </p>
+          <p class="text-text-muted font-body text-base leading-relaxed mb-6">
+            Every clinic that works with DermaArc works directly with Sohail and his team — no account managers hiding behind dashboards, no juniors running your campaigns. Founder-led means exactly that.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="mailto:official@dermaarc.com" class="btn-soft">
+              official@dermaarc.com
+            </a>
+            <a href="https://www.instagram.com/derma.arc/" target="_blank" rel="noopener noreferrer" class="btn-soft">
+              @derma.arc
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section-lg">
+    <div class="container-main">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-bold text-ink">What makes us different.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {values.map((value) => (
+          <div class="card">
+            <h3 class="font-display text-xl font-bold text-ink mb-3">{value.title}</h3>
+            <p class="text-text-muted font-body text-sm leading-relaxed">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Numbers -->
+  <section class="section bg-canvas-soft">
+    <div class="container-main">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {[
+          { value: "2024", label: "Founded" },
+          { value: "₹14.94", label: "Lowest CPL Achieved" },
+          { value: "61K+", label: "Residents Reached" },
+          { value: "100%", label: "Dermatology Focus" },
+        ].map((stat) => (
+          <div>
+            <div class="font-display font-bold text-ink text-4xl mb-2">{stat.value}</div>
+            <p class="text-text-muted font-body text-sm">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</PageLayout>

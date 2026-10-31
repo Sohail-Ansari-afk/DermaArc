@@ -1,0 +1,88 @@
+---
+// Pipeline Section — Medical-to-Cosmetic Patient Conversion
+const stages = [
+  {
+    number: "01",
+    label: "Attract",
+    title: "Capture medical derm patients.",
+    description: "SEO, local search, and Google Maps bring medical dermatology patients in the door — acne, eczema, skin checks, fungal infections.",
+  },
+  {
+    number: "02",
+    label: "Educate",
+    title: "Introduce cosmetic options.",
+    description: "Strategic in-office touchpoints, email sequences, and personalised Instagram content educate medical patients about complementary cosmetic treatments.",
+  },
+  {
+    number: "03",
+    label: "Convert",
+    title: "Book the cash-pay procedure.",
+    description: "Targeted Meta remarketing, treatment-specific WhatsApp funnels, and automated follow-ups convert educated patients into high-value cosmetic bookings.",
+  },
+  {
+    number: "04",
+    label: "Retain",
+    title: "Build lifetime value.",
+    description: "Review automation, WhatsApp loyalty sequences, and lifecycle campaigns turn one-time patients into recurring revenue and referral sources.",
+  },
+];
+---
+
+<section id="pipeline" class="section-lg bg-[#0e0e13] border border-white/10 text-white rounded-[24px] mx-3 sm:mx-6 lg:mx-8">
+  <div class="container-main">
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-16">
+      <p class="text-zinc-400 font-body text-sm font-semibold uppercase tracking-wider mb-4">
+        Bonus framework
+      </p>
+      <h2 class="font-display font-bold text-white mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.15;">
+        The Medical-to-Cosmetic Pipeline.
+      </h2>
+      <p class="text-zinc-300 font-body text-lg font-light leading-relaxed">
+        Every dermatology practice sits on an untapped goldmine: medical patients who are ideal candidates for cosmetic treatments. Our pipeline framework turns that potential into predictable revenue.
+      </p>
+    </div>
+
+    <!-- Pipeline Stages -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {stages.map((stage, i) => (
+        <div class="bg-white/[0.04] border border-white/10 rounded-[24px] p-6 hover:bg-white/[0.08] transition-all duration-300">
+          <!-- Stage Number -->
+          <span class:list={[
+            "font-display text-sm font-bold mb-3 block",
+            i === 0 ? "text-accent-teal" : i === 1 ? "text-accent-aqua" : i === 2 ? "text-accent-gold" : "text-accent-coral",
+          ]}>
+            {stage.number} — {stage.label}
+          </span>
+
+          <!-- Title -->
+          <h3 class="font-display text-xl font-bold text-white mb-3">
+            {stage.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-zinc-400 font-body text-sm leading-relaxed">
+            {stage.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Pipeline Visual Bar -->
+    <div class="mt-12 hidden lg:block">
+      <div class="h-1.5 rounded-full w-full max-w-4xl mx-auto opacity-90" style="background: linear-gradient(90deg, #00c7c7 0%, #55d8c8 25%, #ffc15a 50%, #ff8a3d 75%, #f45135 100%);"></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a
+        href="https://wa.me/919999999999?text=Hi%20DermaArc%2C%20I%27d%20like%20a%20custom%20pipeline%20plan%20for%20my%20clinic."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 h-14 px-8 w-full sm:w-auto rounded-full bg-white text-zinc-950 font-body font-semibold text-base hover:bg-zinc-200 transition-all duration-200 shadow-md hover:-translate-y-0.5"
+      >
+        Get your custom pipeline plan →
+      </a>
+    </div>
+  </div>
+</section>

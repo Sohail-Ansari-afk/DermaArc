@@ -1,0 +1,174 @@
+---
+// FAQ Section — Comprehensive Dermatology Marketing FAQ with JSON-LD Schema
+// All 12 high-intent questions on dermatology patient acquisition, local SEO, Meta ads, and NMC compliance
+
+interface FAQItem {
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+const faqs: FAQItem[] = [
+  {
+    category: "Website & Speed",
+    question: "Do I need a brand-new website to market my dermatology practice?",
+    answer: "Not necessarily. If your existing website loads in under 2 seconds on mobile devices and features focused treatment pages with 1-tap WhatsApp booking, we can optimize and work with what you have. However, if your current site is a slow WordPress template taking 5+ seconds to load, you lose over 53% of mobile visitors before they even read your credentials (documented by Think with Google). As part of our ₹30,000/month 4-Pillar System, DermaArc engineers sub-2-second procedure funnels optimized for mobile conversion and after-hours booking capture.",
+  },
+  {
+    category: "Market Landscape",
+    question: "Why is digital marketing important for dermatology practices in India?",
+    answer: "In Indian metropolitan hubs like Pune, Mumbai, Bangalore, and Delhi NCR, over 80% of cosmetic and skin patients research treatments online before scheduling a consultation. Furthermore, unregulated salon medical spas and corporate chains aggressively run paid social ads. Specialized digital marketing allows qualified MBBS/MD dermatologists to assert medical authority, dominate local 'dermatologist near me' Google searches, and consistently fill appointment books for high-value treatments like chemical peels, HydraFacials, and acne scar subcision.",
+  },
+  {
+    category: "Strategy & Priorities",
+    question: "What is the first marketing step a dermatology clinic should focus on?",
+    answer: "The first step is optimizing your Google Business Profile (Local SEO) and setting up a dedicated WhatsApp response workflow. Your Google Maps listing captures existing high-intent patients who are actively looking for a skin specialist near them today. Making sure your profile ranks in the local 3-Pack with verified reviews, treatment categories, and an instant 1-tap WhatsApp booking button yields immediate patient walk-ins before you spend a single rupee on paid advertising.",
+  },
+  {
+    category: "Clinical vs Cosmetic",
+    question: "What is the difference between medical and cosmetic dermatology marketing?",
+    answer: "Medical dermatology marketing targets urgent, problem-aware patients dealing with clinical skin conditions (acne, eczema, psoriasis, fungal infections, hives). These patients search on Google with high intent, making Google Local SEO and search visibility the primary growth channels. Cosmetic dermatology marketing targets elective, cash-pay procedures (anti-aging, Laser Hair Reduction, chemical peels, dermal fillers, hair PRP/GFC). These patients require visual education, procedure demystification, targeted Meta Ads (Instagram/Facebook), and doctor-led video branding to build trust before booking.",
+  },
+  {
+    category: "Growth Channels",
+    question: "Should a skin clinic focus on Local SEO or Meta Ads first?",
+    answer: "Both serve complementary purposes in a healthy clinic pipeline. Local SEO (Google Maps) captures active intent—patients looking for a clinic right now. It delivers consistent daily walk-ins with compounding long-term returns. Meta Ads (Instagram & Facebook), on the other hand, generate immediate demand within 7–14 days by placing targeted educational campaigns in front of 25–45 year olds within a 5–10 km radius of your clinic. If you need inquiries immediately, run Meta Ads; for permanent organic walk-in volume, build Local SEO.",
+  },
+  {
+    category: "Timelines & ROI",
+    question: "How long does dermatology SEO and Google Maps optimization take to show results?",
+    answer: "Google Maps optimization typically produces tangible ranking improvements and increased patient phone calls/walk-ins within 30 to 60 days as medical categories, geo-tagged clinic photos, local citations, and front-desk review QR workflows take effect. Organic website SEO for procedure-specific queries compounds over 3 to 6 months as your clinical landing pages build domain authority and local backlinks.",
+  },
+  {
+    category: "Meta Ads & Policy",
+    question: "How do you prevent Meta ad rejections for before-and-after skin treatment photos?",
+    answer: "Meta enforces strict Personal Health and Appearance advertising policies, frequently rejecting ads that feature extreme, close-up before-and-after skin comparisons. We bypass policy flags by using doctor-led educational video reels, treatment demonstration clips, patient journey breakdowns, and compliant split-screen carousels that present objective clinical progress without exaggerated promises, zoomed-in skin lesions, or sensational claims.",
+  },
+  {
+    category: "Ethics & Compliance",
+    question: "Are your marketing strategies compliant with NMC guidelines for doctors in India?",
+    answer: "Yes, 100%. The National Medical Commission (NMC) regulations strictly prohibit misleading advertisements, commercial guarantees, and soliciting patients through unethical claims. Every campaign, Reel script, and landing page created by DermaArc adheres to ethical medical branding: emphasizing the doctor's authentic qualifications, sharing scientific skin education, debunking viral trends, and maintaining professional decorum without aggressive commercial discounts or gimmicks.",
+  },
+  {
+    category: "Social Media & Reels",
+    question: "What role does Instagram play in dermatology patient acquisition?",
+    answer: "Instagram functions as your clinic's digital consultation room. Before booking elective procedures, prospective patients look up the dermatologist's Instagram profile to assess their expertise, clinic cleanliness, bedside manner, and case outcomes. By publishing 12–15 high-value educational posts, myth-busting carousels, and conversational Reels each month, doctors build deep patient trust that converts passive local viewers into booked clinic consultations.",
+  },
+  {
+    category: "AI & 2026 Trends",
+    question: "How does AI search impact dermatology clinic marketing in 2026?",
+    answer: "With Google's Search Generative Experience (SGE), Perplexity, and AI Overviews delivering synthesized answers directly on search pages, traditional keyword stuffing is obsolete. AI search algorithms prioritize authentic medical sources with verified physician credentials (E-E-A-T), structured JSON-LD schemas, real patient review sentiment, and local clinic citations. Clinics with clear doctor authority, FAQ schemas, and dedicated treatment guides are cited directly in AI search summaries.",
+  },
+  {
+    category: "Budgets & Scaling",
+    question: "How much monthly ad budget do I need to run Meta ads for my skin clinic?",
+    answer: "You do not need massive budgets. On Meta (Instagram & Facebook), we run hyper-local campaigns targeting a 5–10 km radius around your clinic address. We have demonstrated qualified lead costs between ₹14.94 and ₹29.94 per inquiry on micro-budgets of just ₹100–₹150/day (roughly ₹3,000–₹4,500/month). Once your front-desk conversion rate is dialed in, the ad budget can be scaled predictably based on clinic capacity.",
+  },
+  {
+    category: "WhatsApp Conversion",
+    question: "How do we stop prospective patients from ghosting on WhatsApp before booking a consultation?",
+    answer: "Patients ghost on WhatsApp primarily due to slow response times and generic price quotes. According to Harvard Business Review, conversion rates drop by 391% if inquiries are not answered within 5 minutes. DermaArc prevents ghosting by installing instant front-desk WhatsApp notification alerts, conversational intake scripts that ask qualifying questions about the patient's skin concerns, and automated 24-hour reminder sequences that keep consultation slots top-of-mind.",
+  },
+];
+
+// JSON-LD Structured Data Schema for FAQPage
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": `<p>${faq.answer}</p>`,
+    },
+  })),
+};
+---
+
+<!-- JSON-LD FAQ Structured Data for Google Rich Results -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section id="faq" class="section-lg bg-canvas border-t border-hairline-soft">
+  <div class="container-narrow">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="badge-accent mb-4 inline-block">Direct Answers</span>
+      <h2 class="font-display font-bold text-ink mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.15;">
+        Frequently Asked Questions.
+      </h2>
+      <p class="text-text-muted font-body text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        Everything dermatologists and skin clinic founders ask about patient acquisition, Meta ads, Google Maps SEO, and NMC compliance.
+      </p>
+    </div>
+
+    <!-- FAQ Accordion List -->
+    <div class="space-y-3.5">
+      {faqs.map((faq, i) => {
+        const itemNumber = (i + 1).toString().padStart(2, "0");
+        return (
+          <details
+            class="group bg-canvas-soft border border-hairline-soft rounded-2xl overflow-hidden transition-all duration-200 hover:border-hairline"
+            id={`faq-item-${i}`}
+          >
+            <summary class="flex items-start sm:items-center justify-between gap-3 sm:gap-4 cursor-pointer px-4 sm:px-6 py-4 sm:py-5 list-none select-none">
+              <div class="flex items-start sm:items-center gap-2.5 sm:gap-4 flex-1">
+                <span class="text-xs font-mono text-text-faint font-medium pt-1 sm:pt-0 shrink-0">
+                  {itemNumber}
+                </span>
+                <div class="space-y-1">
+                  {faq.category && (
+                    <span class="inline-block text-[10px] font-mono font-medium uppercase tracking-wider text-text-muted opacity-80">
+                      {faq.category}
+                    </span>
+                  )}
+                  <h3 class="font-body text-base sm:text-lg font-medium text-ink leading-snug">
+                    {faq.question}
+                  </h3>
+                </div>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-field border border-hairline-soft flex items-center justify-center shrink-0 text-text-muted group-hover:text-ink transition-colors">
+                <svg
+                  class="w-4 h-4 transition-transform duration-200 group-open:rotate-45"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+              </div>
+            </summary>
+            <div class="px-4 sm:px-6 pb-5 sm:pb-6 pt-1 border-t border-hairline-soft/50 sm:ml-12">
+              <p class="text-text-muted font-body text-sm sm:text-base leading-relaxed">
+                {faq.answer}
+              </p>
+            </div>
+          </details>
+        );
+      })}
+    </div>
+
+    <!-- Bottom Helper Prompt -->
+    <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-canvas-soft border border-hairline-soft flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+      <div>
+        <h4 class="font-display font-bold text-ink text-lg mb-1">
+          Have a question specific to your clinic or city?
+        </h4>
+        <p class="font-body text-text-muted text-sm leading-relaxed">
+          Get direct advice on budgets, local competition, and patient acquisition in your area.
+        </p>
+      </div>
+      <a
+        href="https://wa.me/919999999999?text=Hi%20DermaArc%2C%20I%20have%20a%20question%20about%20marketing%20my%20dermatology%20clinic."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 px-6 py-3 w-full sm:w-auto rounded-full bg-primary text-on-primary font-body font-semibold text-sm hover:opacity-90 transition-all duration-200 shadow-sm shrink-0"
+      >
+        Ask on WhatsApp
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

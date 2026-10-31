@@ -1,11 +1,39 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import PageLayout from "../layouts/PageLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import BrandMarquee from "../components/BrandMarquee.astro";
+import StatsBar from "../components/StatsBar.astro";
+import ProblemSection from "../components/ProblemSection.astro";
+import ClinicTypes from "../components/ClinicTypes.astro";
+import FourPillarSection from "../components/FourPillarSection.astro";
+import PipelineSection from "../components/PipelineSection.astro";
+import ProcessSection from "../components/ProcessSection.astro";
+import CaseStudyPreview from "../components/CaseStudyPreview.astro";
+import ROICalculator from "../components/ROICalculator.astro";
+import PricingSection from "../components/PricingSection.astro";
+import Testimonials from "../components/Testimonials.astro";
+import AboutSEOSection from "../components/AboutSEOSection.astro";
+import FAQSection from "../components/FAQSection.astro";
+import CTASection from "../components/CTASection.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<PageLayout
+  title="Digital Marketing Agency for Dermatologists"
+  description="DermaArc is India's premier digital marketing agency for dermatologists and skin clinics. 15–30+ high-margin patient bookings every month via hyper-local Meta ads, Google Maps SEO, and high-converting clinic funnels."
+>
+  <HeroSection />
+  <BrandMarquee />
+  <StatsBar />
+  <ProblemSection />
+  <ClinicTypes />
+  <FourPillarSection />
+  <PipelineSection />
+  <ProcessSection />
+  <CaseStudyPreview />
+  <ROICalculator />
+  <PricingSection />
+  <Testimonials />
+  <AboutSEOSection />
+  <FAQSection />
+  <CTASection />
+</PageLayout>

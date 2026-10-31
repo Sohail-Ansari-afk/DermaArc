@@ -1,0 +1,63 @@
+---
+// Process Section — How the engagement works
+const steps = [
+  {
+    number: "01",
+    title: "Free Strategy Call.",
+    description: "A 20-minute WhatsApp or Zoom call where we audit your current online presence, identify the biggest gaps, and map out a custom growth plan for your clinic.",
+  },
+  {
+    number: "02",
+    title: "4-Pillar Setup.",
+    description: "We build your conversion-first website, set up Meta ad campaigns, optimise your Google Business Profile, and create your first month's Instagram content calendar — all within 7–10 days.",
+  },
+  {
+    number: "03",
+    title: "Launch & Fill Slots.",
+    description: "Campaigns go live. WhatsApp leads start flowing. Walk-ins increase. Your front desk gets real-time alerts for every inquiry so no lead slips through the cracks.",
+  },
+  {
+    number: "04",
+    title: "Report & Optimise.",
+    description: "Monthly reports tracking only what matters — total inquiries, cost per lead, and clinic walk-ins. No vanity metrics. We optimise relentlessly to reduce CPL and increase bookings.",
+  },
+];
+---
+
+<section id="process" class="section-lg bg-canvas-soft">
+  <div class="container-main">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">How it works</p>
+      <h2 class="font-display font-bold text-ink mb-4">
+        Live in 10 days.<br class="hidden sm:block" />
+        Results in 30.
+      </h2>
+      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+        No month-long onboarding. No drawn-out discovery phases. Your 4-Pillar System goes live within 10 days of signing.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {steps.map((step) => (
+        <div class="card bg-canvas group hover:-translate-y-1 transition-all duration-300">
+          <!-- Number -->
+          <span class="gradient-text font-display text-sm font-bold mb-4 block">
+            {step.number}
+          </span>
+
+          <!-- Title -->
+          <h3 class="font-display text-xl font-bold text-ink mb-3">
+            {step.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-text-muted font-body text-sm leading-relaxed">
+            {step.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

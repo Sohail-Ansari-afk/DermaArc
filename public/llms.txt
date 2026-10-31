@@ -1,0 +1,30 @@
+# DermaArc (dermaarc.com)
+
+> DermaArc is India's specialized, founder-led digital marketing and patient acquisition agency built exclusively for board-certified dermatologists, aesthetic skin clinics, and hair restoration practices.
+
+## Overview
+- **Founder:** Sohail Ansari
+- **Headquarters:** Pune, Maharashtra, India
+- **Contact:** official@dermaarc.com | Instagram: @derma.arc
+- **Core Offer:** The 4-Pillar Dermatology Patient Acquisition System
+- **Pricing:** ₹30,000 / month flat retainer (no long-term lock-in contracts)
+- **Primary Deliverable:** Adding 15–30+ high-margin patient consultations every month through WhatsApp bookings and Google Maps walk-ins.
+
+## Who We Serve
+1. **Clinical Dermatology Practices (MD/MBBS):** Doctors treating acne, eczema, psoriasis, fungal infections, and clinical skin conditions looking to rank #1 in local Google Maps searches.
+2. **Cosmetic & Aesthetic Laser Clinics:** Practices scaling cash-pay procedures like acne scar subcision, Laser Hair Reduction, chemical peels, and HydraFacials.
+3. **Hair Restoration & Trichology Studios:** Clinics scaling consultations for Hair PRP, GFC therapy, and hair transplants.
+
+## The 4-Pillar System
+1. **Conversion-First Clinic Websites & Funnels:** Mobile-first, sub-2-second procedure landing pages with 1-tap WhatsApp booking (eliminating 53% mobile bounce).
+2. **Hyper-Local Meta Ads (Instagram & Facebook):** 5–10 km radius targeting around the clinic with instant front-desk WhatsApp alerts to beat the 5-minute lead decay window. Proven ₹14.94 to ₹29.94 cost per lead.
+3. **Google Business Profile (GMB) & Walk-In Local SEO:** Ranking clinics in Google Maps Top 3 with geo-tagged photography, medical category optimization, and front-desk 5-star review QR stands.
+4. **Instagram Authority Content Calendars:** 12–15 monthly clinical posts, carousels, and NMC-compliant Reel scripts allowing doctors to batch-record a month's content in 90 minutes.
+
+## Key Pages & Documentation
+- [Home](https://dermaarc.com/): Agency overview, ROI calculator, and verified case studies.
+- [Services](https://dermaarc.com/services): In-depth breakdown of the 4-Pillar System.
+- [Growth Plan Audit](https://dermaarc.com/growth-plan): Free 20-minute clinic digital marketing audit checklist.
+- [Patient Conversion Guide](https://dermaarc.com/patient-conversion-guide): Framework for converting clinical medical patients into cash-pay cosmetic procedures.
+- [Blog](https://dermaarc.com/blog): Case studies, lead ghosting prevention, and NMC social media compliance guides.
+- [FAQ](https://dermaarc.com/#faq): 12 direct questions and answers with JSON-LD structured data.

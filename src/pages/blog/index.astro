@@ -1,0 +1,138 @@
+---
+import PageLayout from "../../layouts/PageLayout.astro";
+import CTASection from "../../components/CTASection.astro";
+
+const articles = [
+  {
+    category: "Conversion Rate Optimization",
+    readTime: "5 min read",
+    title: "Why 53% of Your Clinic's Mobile Visitors Leave Without Booking (And How to Fix It)",
+    excerpt: "Google research reveals that 53% of mobile visitors abandon pages that take over 3 seconds to load. Here is how modern procedure funnels eliminate friction and 1-tap WhatsApp capture changes everything.",
+    date: "October 2026",
+    slug: "mobile-bounce-rate-dermatology-clinics",
+  },
+  {
+    category: "Lead Management & CRM",
+    readTime: "4 min read",
+    title: "Beating the 5-Minute Clock: Why Fast WhatsApp Responses Double Clinic Consultations",
+    excerpt: "A Harvard Business Review study found companies that contact leads within an hour are 7x more likely to qualify them. For healthcare clinics, responding in 5 minutes via WhatsApp increases conversion by up to 391%.",
+    date: "October 2026",
+    slug: "five-minute-lead-response-whatsapp",
+  },
+  {
+    category: "Practice Growth",
+    readTime: "7 min read",
+    title: "The Medical-to-Cosmetic Pipeline: Converting Acne Patients into Cash-Pay Procedures",
+    excerpt: "Every dermatology practice already has its best cosmetic prospects sitting in the waiting room. Discover our 4-stage framework for ethically introducing chemical peels, subcision, and laser to clinical patients.",
+    date: "September 2026",
+    slug: "medical-to-cosmetic-patient-pipeline",
+  },
+  {
+    category: "Compliance & Ethics",
+    readTime: "6 min read",
+    title: "NMC Advertising Guidelines for Indian Dermatologists: The Complete 2026 Cheat Sheet",
+    excerpt: "Navigating National Medical Commission advertising rules doesn't mean staying silent. Learn what is permitted, how to present clinical authority on Instagram Reels, and how to stay 100% compliant.",
+    date: "September 2026",
+    slug: "nmc-guidelines-dermatology-marketing",
+  },
+  {
+    category: "Local SEO & Google Maps",
+    readTime: "5 min read",
+    title: "How to Rank Your Clinic in Google Maps Top 3 for Daily Patient Walk-Ins",
+    excerpt: "A breakdown of medical GMB category mapping, geo-tagged clinic photo strategies, review generation QR stands, and NAP directory syndication that drives consistent walk-in foot traffic.",
+    date: "August 2026",
+    slug: "google-maps-walk-in-seo-dermatologists",
+  },
+  {
+    category: "Paid Media & Ads",
+    readTime: "6 min read",
+    title: "Micro-Budget Meta Ads: Generating Qualified Patient Leads Under ₹25 in Tier-1 Cities",
+    excerpt: "Case study and methodology breakdown of running 5–10 km radius Instagram campaigns on starter budgets of ₹100–150/day while avoiding ad fatigue and audience saturation.",
+    date: "August 2026",
+    slug: "micro-budget-meta-ads-dermatology",
+  },
+];
+---
+
+<PageLayout
+  title="Blog & Clinical Insights"
+  description="Proven patient acquisition strategies, local SEO playbooks, and conversion frameworks built exclusively for dermatologists and aesthetic clinics."
+>
+  <!-- Hero -->
+  <section class="section-lg">
+    <div class="container-main text-center">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <span class="badge-accent">Dermatology Growth Insights</span>
+      </div>
+      <h1 class="font-display font-bold text-ink mb-6" style="font-size: clamp(36px, 5vw, 64px); line-height: 1.0;">
+        Clinical marketing.<br />
+        <span class="gradient-text">Zero fluff.</span>
+      </h1>
+      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+        Deep-dive strategies, data-backed playbooks, and regulatory guidance written specifically for Indian skin and hair practices.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Article -->
+  <section class="section pt-0">
+    <div class="container-main">
+      <div class="card-featured p-8 sm:p-12 max-w-5xl mx-auto group hover:-translate-y-1 transition-all duration-300">
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <span class="inline-flex items-center h-7 px-3 rounded-full bg-canvas text-ink text-xs font-semibold font-body border border-hairline">
+            Featured Playbook
+          </span>
+          <span class="text-text-faint text-xs font-body">· {articles[0].readTime} · {articles[0].date}</span>
+        </div>
+        <h2 class="font-display font-bold text-ink text-2xl sm:text-3xl md:text-4xl mb-4 group-hover:text-primary transition-colors">
+          <a href="/patient-conversion-guide">
+            {articles[0].title}
+          </a>
+        </h2>
+        <p class="text-text-muted font-body text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
+          {articles[0].excerpt}
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="/patient-conversion-guide" class="btn-primary h-11 px-6 text-sm">
+            Read Free Guide →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="section bg-canvas-soft">
+    <div class="container-main">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {articles.slice(1).map((article) => (
+          <article class="card bg-canvas group hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs text-text-muted font-body mb-4">
+                <span class="font-semibold text-ink">{article.category}</span>
+                <span>{article.readTime}</span>
+              </div>
+              <h3 class="font-display text-xl font-bold text-ink mb-3 leading-snug group-hover:text-primary transition-colors">
+                <a href="/patient-conversion-guide">
+                  {article.title}
+                </a>
+              </h3>
+              <p class="text-text-muted font-body text-sm leading-relaxed mb-6">
+                {article.excerpt}
+              </p>
+            </div>
+            <div class="pt-4 border-t border-hairline-soft flex items-center justify-between">
+              <span class="text-text-faint text-xs font-body">{article.date}</span>
+              <a href="/patient-conversion-guide" class="text-sm font-semibold font-body text-ink group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                Read article →
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</PageLayout>
+

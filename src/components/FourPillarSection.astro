@@ -1,0 +1,98 @@
+---
+// Four Pillar Section — The 4-Pillar Patient Booking System
+const pillars = [
+  {
+    number: "01",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    title: "Conversion-First Websites & Funnels.",
+    description: "Mobile-first, sub-2-second procedure landing pages with 1-tap WhatsApp booking. We eliminate the 53% mobile bounce rate and capture the 43% of patients who search after clinic hours.",
+    features: ["Sub-2s Load Times", "1-Tap WhatsApp Booking", "Procedure Landing Pages", "After-Hours Capture"],
+    accentColor: "text-accent-teal",
+  },
+  {
+    number: "02",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>`,
+    title: "Hyper-Local Meta Ads.",
+    description: "Policy-compliant Instagram & Facebook campaigns targeting a 5–10 km radius around your clinic. Instant front-desk WhatsApp alerts beat the 5-minute lead response window — so you never lose a hot inquiry.",
+    features: ["5–10 km Radius Targeting", "NMC-Compliant Creatives", "Instant WhatsApp Alerts", "₹100–150/Day Budgets"],
+    accentColor: "text-accent-aqua",
+  },
+  {
+    number: "03",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: "Google Maps & Walk-In SEO.",
+    description: "Optimised Google Business Profile with medical categories, geo-tagged clinic photos, treatment listings, and front-desk 5-star review QR code stands to rank in the Maps Top 3 for daily walk-ins.",
+    features: ["GMB Optimisation", "Review QR Stands", "Geo-Tagged Photos", "Maps Top 3 Ranking"],
+    accentColor: "text-accent-gold",
+  },
+  {
+    number: "04",
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    title: "Instagram Authority Content.",
+    description: "12–15 monthly posts, clinical carousels, and word-for-word Hinglish/English Reel scripts — NMC-compliant and designed so busy doctors can batch-record an entire month of videos in just 90 minutes.",
+    features: ["12–15 Posts / Month", "Reel Scripts (Hinglish)", "Clinical Carousels", "90-Min Batch Recording"],
+    accentColor: "text-accent-coral",
+  },
+];
+---
+
+<section id="four-pillars" class="section-lg">
+  <div class="container-main">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">The 4-Pillar System</p>
+      <h2 class="font-display font-bold text-ink mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.13;">
+        One system. Four engines.<br class="hidden sm:block" />
+        <span class="gradient-text">Zero freelancer chaos.</span>
+      </h2>
+      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+        Instead of juggling disconnected freelancers, DermaArc installs a complete patient booking engine — all four pillars managed in-house under one retainer.
+      </p>
+    </div>
+
+    <!-- Pillars Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {pillars.map((pillar) => (
+        <div class="card group hover:bg-canvas-soft transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start gap-4 mb-4">
+            <!-- Icon -->
+            <div class="w-12 h-12 rounded-full bg-canvas-soft group-hover:bg-canvas flex items-center justify-center shrink-0 transition-colors duration-300">
+              <Fragment set:html={pillar.icon} />
+            </div>
+            <!-- Number -->
+            <div>
+              <span class:list={["font-display text-sm font-bold block mb-1", pillar.accentColor]}>
+                Pillar {pillar.number}
+              </span>
+              <h3 class="font-display text-xl font-bold text-ink">
+                {pillar.title}
+              </h3>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="text-text-muted font-body text-sm leading-relaxed mb-6">
+            {pillar.description}
+          </p>
+
+          <!-- Features -->
+          <div class="flex flex-wrap gap-2">
+            {pillar.features.map((feature) => (
+              <span class="inline-flex items-center h-7 px-3 rounded-full bg-canvas-soft text-text-muted text-xs font-semibold font-body">
+                {feature}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-12">
+      <a href="https://wa.me/919999999999?text=Hi%20DermaArc%2C%20I%27d%20like%20to%20know%20more%20about%20the%204-Pillar%20System." target="_blank" rel="noopener noreferrer" class="btn-primary">
+        Get all 4 pillars for ₹30,000/mo →
+      </a>
+    </div>
+  </div>
+</section>
+

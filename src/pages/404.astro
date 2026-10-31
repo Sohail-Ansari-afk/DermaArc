@@ -1,0 +1,76 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+
+const quickLinks = [
+  { title: "4-Pillar Growth Engine", href: "/#four-pillars", desc: "Websites, Meta Ads, Local SEO, and Instagram Content" },
+  { title: "Free Growth Plan Audit", href: "/growth-plan", desc: "20-minute clinic assessment checklist" },
+  { title: "Patient Conversion Guide", href: "/patient-conversion-guide", desc: "Turn medical patients into cosmetic bookings" },
+  { title: "Transparent Pricing", href: "/#pricing", desc: "₹30,000/month all-inclusive" },
+];
+---
+
+<PageLayout
+  title="404 — Page Not Found"
+  description="The dermatology marketing page you were looking for does not exist or has been moved."
+>
+  <section class="section-lg min-h-[75vh] flex items-center justify-center relative overflow-hidden">
+    <div class="container-narrow text-center relative z-10">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 mb-6">
+        <span class="badge-accent">Error 404 · Page Not Found</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-display font-bold text-ink mb-4" style="font-size: clamp(36px, 7vw, 84px); line-height: 1.05;">
+        Lost in the <span class="gradient-text">clinic funnels?</span>
+      </h1>
+
+      <p class="text-text-muted font-body text-base sm:text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed">
+        The clinic page, guide, or resource you were looking for has moved or does not exist. Here are the most visited resources:
+      </p>
+
+      <!-- Quick Navigation Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12 text-left">
+        {quickLinks.map((item) => (
+          <a
+            href={item.href}
+            class="card p-5 bg-canvas-soft border border-hairline-soft hover:border-hairline hover:-translate-y-0.5 transition-all duration-200 group"
+          >
+            <div class="flex items-center justify-between mb-1">
+              <span class="font-display font-bold text-ink text-base group-hover:text-accent-teal transition-colors">
+                {item.title}
+              </span>
+              <svg class="w-4 h-4 text-text-faint group-hover:text-ink group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <p class="text-text-muted font-body text-xs">
+              {item.desc}
+            </p>
+          </a>
+        ))}
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none mx-auto">
+        <a href="/" class="btn-primary w-full sm:w-auto h-14 px-8 text-base shadow-sm">
+          Back to Homepage
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/919999999999?text=Hi%20DermaArc%2C%20I%20hit%20a%20404%20error%20page%20on%20your%20website."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline w-full sm:w-auto h-14 px-8 text-base"
+        >
+          WhatsApp Support
+        </a>
+      </div>
+    </div>
+
+    <!-- Background decorative radial glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-[0.03] pointer-events-none" style="background: radial-gradient(circle, #00c7c7, transparent 70%);"></div>
+  </section>
+</PageLayout>

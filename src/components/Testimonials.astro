@@ -1,0 +1,64 @@
+---
+// Testimonials — dermatologist quotes
+const testimonials = [
+  {
+    quote: "Before DermaArc, I was paying three different freelancers and getting zero accountability. Now everything is under one roof — my WhatsApp inquiries have tripled and I know exactly what every rupee is doing.",
+    name: "Dr. Meera Kulkarni",
+    role: "Dermatologist",
+    company: "SkinFirst Clinic, Pune",
+  },
+  {
+    quote: "The Instagram content calendar was a game-changer. I batch-record all my Reels in 90 minutes on a Sunday and DermaArc handles everything else. My clinic's Instagram went from 200 to 4,000 followers in four months.",
+    name: "Dr. Rajesh Nair",
+    role: "Cosmetic Dermatologist",
+    company: "Radiance Aesthetics, Mumbai",
+  },
+  {
+    quote: "I was sceptical about digital marketing — I'd been burned by agencies before. DermaArc's transparent reporting changed my mind. I see total inquiries, cost per lead, and walk-ins. Nothing is hidden.",
+    name: "Dr. Ananya Sharma",
+    role: "Trichologist",
+    company: "HairCare Studio, Bangalore",
+  },
+  {
+    quote: "We went from 8 walk-ins a week to consistently 25+. The Google Maps optimisation alone was worth the entire retainer — we now rank in the top 3 for every 'dermatologist near me' search in our area.",
+    name: "Dr. Vikram Desai",
+    role: "Dermatologist & Laser Specialist",
+    company: "DermaCare Clinic, Hyderabad",
+  },
+];
+---
+
+<section id="testimonials" class="section-lg bg-canvas-soft">
+  <div class="container-main">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">Doctor stories</p>
+      <h2 class="font-display font-bold text-ink">
+        What dermatologists say.
+      </h2>
+    </div>
+
+    <!-- Testimonial Cards: Masonry-like layout -->
+    <div class="columns-1 md:columns-2 lg:columns-2 gap-6 max-w-4xl mx-auto">
+      {testimonials.map((testimonial) => (
+        <div class="card mb-6 break-inside-avoid">
+          <!-- Quote -->
+          <p class="text-ink font-body text-base leading-relaxed mb-6">
+            "{testimonial.quote}"
+          </p>
+
+          <!-- Author -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-canvas-soft flex items-center justify-center shrink-0">
+              <span class="text-ink text-sm font-bold font-display">{testimonial.name.split(' ').pop()?.charAt(0)}</span>
+            </div>
+            <div>
+              <p class="text-ink font-body text-sm font-semibold">{testimonial.name}</p>
+              <p class="text-text-muted font-body text-xs">{testimonial.role}, {testimonial.company}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+# Cloudflare Pages Redirects
+# --------------------------
+# Canonical redirect: www to non-www
+https://www.dermaarc.com/* https://dermaarc.com/:splat 301!
+

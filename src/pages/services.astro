@@ -1,0 +1,164 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import CTASection from "../components/CTASection.astro";
+import PricingSection from "../components/PricingSection.astro";
+
+const pillars = [
+  {
+    id: "websites",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    number: "01",
+    title: "Conversion-First Websites & Funnels.",
+    subtitle: "Your clinic's 24/7 booking machine.",
+    description: "We build mobile-first, sub-2-second procedure landing pages that eliminate the 53% mobile bounce rate and capture the 43% of patients who schedule after clinic hours — all with 1-tap WhatsApp booking.",
+    features: [
+      { name: "Mobile-First Design", detail: "Sub-2-second load times. Google data shows 53% of mobile visitors leave after 3 seconds — we keep them." },
+      { name: "1-Tap WhatsApp Booking", detail: "One tap opens a pre-filled WhatsApp message. No forms, no friction, no lost leads." },
+      { name: "Procedure Landing Pages", detail: "Dedicated pages for each treatment you offer — optimised for local search and conversions." },
+      { name: "After-Hours Capture", detail: "43% of patients research after 7 PM. Your website captures them while your front desk sleeps." },
+      { name: "Trust Architecture", detail: "Board certifications, clinic photos, doctor profiles, and patient reviews — all strategically placed to build instant credibility." },
+      { name: "Speed Optimisation", detail: "Lazy-loaded images, optimised assets, minimal JavaScript. Your site loads faster than your competitors'." },
+    ],
+    results: [
+      { metric: "<2s", label: "Page Load Time" },
+      { metric: "43%", label: "After-Hours Capture" },
+      { metric: "3x", label: "Conversion vs. Template Sites" },
+    ],
+  },
+  {
+    id: "meta-ads",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>`,
+    number: "02",
+    title: "Hyper-Local Meta Ads.",
+    subtitle: "₹14.94 per lead. Proven.",
+    description: "Policy-compliant Instagram & Facebook campaigns targeting a 5–10 km radius around your clinic. Instant front-desk WhatsApp alerts beat the 5-minute lead response window — so you never lose a hot inquiry.",
+    features: [
+      { name: "5–10 km Radius Targeting", detail: "We only target people who can actually walk into your clinic. No wasted reach on distant audiences." },
+      { name: "NMC-Compliant Creatives", detail: "Every ad creative complies with National Medical Commission guidelines. No exaggerated claims, no ethical violations." },
+      { name: "Instant WhatsApp Alerts", detail: "When a lead comes in, your front desk gets an instant WhatsApp notification. Harvard Business Review shows leads go cold after 5 minutes." },
+      { name: "Micro-Budget Optimisation", detail: "Starting budgets of ₹100–150/day. We've proven ₹14.94 per lead and ₹2.39 per 1,000 reached on these budgets." },
+      { name: "Treatment-Specific Campaigns", detail: "Separate campaigns for acne, laser, PRP, HydraFacial — each with tailored messaging and landing pages." },
+      { name: "Retargeting Sequences", detail: "Visitors who didn't book see follow-up ads with testimonials, before/afters (where compliant), and special offers." },
+    ],
+    results: [
+      { metric: "₹14.94", label: "Cost Per Lead" },
+      { metric: "61K+", label: "Local Residents Reached" },
+      { metric: "₹2.39", label: "Per 1,000 Reached" },
+    ],
+  },
+  {
+    id: "google-maps",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    number: "03",
+    title: "Google Maps & Walk-In SEO.",
+    subtitle: "Rank in the Maps Top 3.",
+    description: "Optimised Google Business Profile with medical categories, geo-tagged clinic photos, treatment listings, and front-desk 5-star review QR code stands to rank in the Maps Top 3 for daily walk-ins.",
+    features: [
+      { name: "GMB Category Optimisation", detail: "Medical-specific categories and attributes that tell Google exactly what you treat and where." },
+      { name: "Geo-Tagged Clinic Photos", detail: "Professional photos with GPS metadata that boost your local relevance signals." },
+      { name: "Treatment Listings", detail: "Every procedure you offer listed as a Google product/service — visible directly in Maps results." },
+      { name: "Review QR Code Stands", detail: "Physical QR stands for your front desk that make it effortless for happy patients to leave 5-star reviews." },
+      { name: "Local Citation Building", detail: "Consistent NAP (Name, Address, Phone) across Practo, Justdial, Sulekha, and 20+ directories." },
+      { name: "Q&A Management", detail: "We monitor and respond to the Q&A section on your Google profile — a conversion touchpoint most clinics ignore." },
+    ],
+    results: [
+      { metric: "Top 3", label: "Google Maps Ranking" },
+      { metric: "5.0★", label: "Target Review Score" },
+      { metric: "+40%", label: "Walk-In Increase" },
+    ],
+  },
+  {
+    id: "instagram",
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+    number: "04",
+    title: "Instagram Authority Content.",
+    subtitle: "90 minutes. One month of content.",
+    description: "12–15 monthly posts, clinical carousels, and word-for-word Hinglish/English Reel scripts — NMC-compliant and designed so busy doctors can batch-record an entire month of videos in just 90 minutes.",
+    features: [
+      { name: "12–15 Posts Per Month", detail: "A mix of educational carousels, patient-facing tips, treatment spotlights, and authority-building content." },
+      { name: "Reel Scripts (Hinglish/English)", detail: "Word-for-word scripts in Hinglish or English — just read and record. No creative thinking required from the doctor." },
+      { name: "Clinical Carousels", detail: "Multi-slide educational posts that position you as the go-to expert for specific conditions and treatments." },
+      { name: "90-Minute Batch Recording", detail: "We design scripts so you can record an entire month of video content in a single 90-minute session." },
+      { name: "NMC Compliance", detail: "Every post reviewed for NMC advertising guideline compliance. No exaggerated claims, no unethical content." },
+      { name: "Hashtag & Caption Strategy", detail: "Localised hashtags, engagement-optimised captions, and strategic posting schedules for maximum reach." },
+    ],
+    results: [
+      { metric: "12–15", label: "Posts Per Month" },
+      { metric: "90 min", label: "Doctor's Time / Month" },
+      { metric: "20x", label: "Avg. Follower Growth" },
+    ],
+  },
+];
+---
+
+<PageLayout
+  title="The 4-Pillar System"
+  description="DermaArc's complete 4-Pillar Patient Booking System: conversion-first websites, hyper-local Meta ads, Google Maps SEO, and Instagram authority content — all for ₹30,000/month."
+>
+  <!-- Page Hero -->
+  <section class="section-lg">
+    <div class="container-main text-center">
+      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">The 4-Pillar System</p>
+      <h1 class="font-display font-bold text-ink mb-6">
+        One system.<br />
+        <span class="gradient-text">Four engines. Zero chaos.</span>
+      </h1>
+      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+        Instead of juggling disconnected freelancers, DermaArc installs a complete patient booking engine — all four pillars managed in-house under one ₹30,000/month retainer.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pillars Detail -->
+  {pillars.map((pillar, i) => (
+    <section id={pillar.id} class:list={["section", i % 2 === 0 ? "" : "bg-canvas-soft"]}>
+      <div class="container-main">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <!-- Left: Info -->
+          <div>
+            <div class="w-14 h-14 rounded-full bg-canvas-soft flex items-center justify-center mb-6">
+              <Fragment set:html={pillar.icon} />
+            </div>
+            <span class="gradient-text font-display text-sm font-bold mb-2 block">Pillar {pillar.number}</span>
+            <h2 class="font-display font-bold text-ink mb-2">
+              {pillar.title}
+            </h2>
+            <p class="gradient-text font-display text-xl font-bold mb-4">
+              {pillar.subtitle}
+            </p>
+            <p class="text-text-muted font-body text-base leading-relaxed mb-8">
+              {pillar.description}
+            </p>
+
+            <!-- Results Row -->
+            <div class="grid grid-cols-3 gap-4 mb-8">
+              {pillar.results.map((result) => (
+                <div class="text-center p-4 bg-canvas-soft rounded-[16px]">
+                  <div class="font-display font-bold text-ink text-2xl mb-1">{result.metric}</div>
+                  <p class="text-text-muted font-body text-xs">{result.label}</p>
+                </div>
+              ))}
+            </div>
+
+            <a href="https://wa.me/919999999999?text=Hi%20DermaArc%2C%20tell%20me%20more%20about%20Pillar%20${pillar.number}." target="_blank" rel="noopener noreferrer" class="btn-primary">
+              Learn More →
+            </a>
+          </div>
+
+          <!-- Right: Features -->
+          <div class="space-y-4">
+            {pillar.features.map((feature) => (
+              <div class="card">
+                <h4 class="font-display text-base font-bold text-ink mb-2">{feature.name}</h4>
+                <p class="text-text-muted font-body text-sm leading-relaxed">{feature.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <PricingSection />
+  <CTASection />
+</PageLayout>
