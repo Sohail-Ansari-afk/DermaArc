@@ -1,5 +1,4 @@
-# Cloudflare Pages Redirects
-# --------------------------
-# Canonical redirect: www to non-www
-https://www.dermaarc.com/* https://dermaarc.com/:splat 301!
-
+# Cloudflare Static Asset Redirects (Relative URLs only)
+# -----------------------------------------------------
+/home / 301
+/index.html / 301
