@@ -28,3 +28,4 @@
 - [Patient Conversion Guide](https://dermaarc.com/patient-conversion-guide): Framework for converting clinical medical patients into cash-pay cosmetic procedures.
 - [Blog](https://dermaarc.com/blog): Case studies, lead ghosting prevention, and NMC social media compliance guides.
 - [FAQ](https://dermaarc.com/#faq): 12 direct questions and answers with JSON-LD structured data.
+
