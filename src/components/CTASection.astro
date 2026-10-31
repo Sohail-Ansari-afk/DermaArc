@@ -325,6 +325,16 @@
           successCard?.classList.remove("hidden");
           // Smoothly scroll up slightly to bring the success state into clean view
           successCard?.scrollIntoView({ behavior: "smooth", block: "center" });
+
+          // Send Google Analytics conversion event
+          if (typeof (window as any).gtag === "function") {
+            (window as any).gtag("event", "generate_lead", {
+              event_category: "Clinic Application",
+              event_label: "Clinic Growth Plan Submission",
+              value: 30000,
+              currency: "INR",
+            });
+          }
         } else {
           alert("Submission could not be completed: " + (result.message || "Please check your details or connect via WhatsApp."));
           if (submitBtn) submitBtn.disabled = false;
