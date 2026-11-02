@@ -1,0 +1,763 @@
+---
+// HeroInteractiveEngine.astro — 3D Interactive Parallax Clinic Engine Showcase
+// References Mobbin design system (DESIGN.md) & interactive hero element
+
+interface VerticalData {
+  id: string;
+  category: string;
+  badge: string;
+  badgeStyle: string;
+  title: string;
+  subtitle: string;
+  statusTag: string;
+  tagColor: string;
+  iconBg: string;
+  iconColor: string;
+  stat1: string;
+  label1: string;
+  sub1: string;
+  stat2: string;
+  label2: string;
+  sub2: string;
+  stat3: string;
+  label3: string;
+  sub3: string;
+  eyebrow: string;
+  headline: string;
+  description: string;
+}
+
+const verticals: VerticalData[] = [
+  {
+    id: "clinical",
+    category: "CLINICAL PRACTICE",
+    badge: "Top 3 Maps",
+    badgeStyle: "bg-accent-teal/15 text-accent-teal border-accent-teal/30",
+    title: "Clinical Dermatology",
+    subtitle: "Acne • Eczema • Psoriasis",
+    statusTag: "+22 OPD Walk-ins/mo",
+    tagColor: "text-accent-teal",
+    iconBg: "bg-gradient-to-br from-[#00c7c7]/20 to-[#55d8c8]/10",
+    iconColor: "text-accent-teal",
+    stat1: "Sub-2s",
+    label1: "Mobile-First Loading",
+    sub1: "53% lower bounce",
+    stat2: "Top 3",
+    label2: "Google Maps Rank",
+    sub2: "High-intent OPD leads",
+    stat3: "18–25",
+    label3: "Patients / Clinic / Mo",
+    sub3: "Verified consultations",
+    eyebrow: "Specialized Clinical Acquisition Engine",
+    headline: "High-Speed Patient Acquisition Engine",
+    description: "Sub-2s procedure pages, hyper-local Meta campaigns, and automated WhatsApp appointment routing engineered exclusively for skin & aesthetic clinics."
+  },
+  {
+    id: "cosmetic",
+    category: "COSMETIC & LASER",
+    badge: "High-Ticket",
+    badgeStyle: "bg-accent-gold/15 text-accent-gold border-accent-gold/30",
+    title: "Laser & Aesthetics",
+    subtitle: "Acne Scars • MNRF • Peels",
+    statusTag: "₹45k Avg Package",
+    tagColor: "text-accent-gold",
+    iconBg: "bg-gradient-to-br from-[#ffc15a]/20 to-[#ff8a3d]/10",
+    iconColor: "text-accent-gold",
+    stat1: "₹3.8L+",
+    label1: "Added Procedure Rev",
+    sub1: "Monthly high-margin billings",
+    stat2: "14–18",
+    label2: "Laser Consults",
+    sub2: "Pre-qualified patient inquiries",
+    stat3: "3.8x",
+    label3: "Verified Meta ROAS",
+    sub3: "Zero ad budget leakage",
+    eyebrow: "Aesthetic & Laser Growth Engine",
+    headline: "High-Ticket Procedure Booking System",
+    description: "Targeted procedure funnels and premium visual creatives designed to attract affluent patients ready to book full-course laser & aesthetic packages."
+  },
+  {
+    id: "hair",
+    category: "TRICHOLOGY & HAIR",
+    badge: "High-Margin",
+    badgeStyle: "bg-accent-orange/15 text-accent-orange border-accent-orange/30",
+    title: "Hair PRP & GFC Studio",
+    subtitle: "Hair Loss • GFC • Transplants",
+    statusTag: "3.4x ROI Tracked",
+    tagColor: "text-accent-orange",
+    iconBg: "bg-gradient-to-br from-[#ff8a3d]/20 to-[#f45135]/10",
+    iconColor: "text-accent-orange",
+    stat1: "12–16",
+    label1: "PRP & GFC Packages",
+    sub1: "Multi-session closed plans",
+    stat2: "₹3,200",
+    label2: "Cost Per Patient",
+    sub2: "5–10 km clinic geo-radius",
+    stat3: "88%",
+    label3: "Show-Up Ratio",
+    sub3: "WhatsApp calendar sync",
+    eyebrow: "Trichology & Hair Scale Engine",
+    headline: "Predictable Hair Restoration Pipeline",
+    description: "Generate consistent, high-value inquiries for hair thinning, PRP therapy, and GFC treatments with localized intent targeting and automated follow-ups."
+  },
+  {
+    id: "automation",
+    category: "FRONT-DESK SYNC",
+    badge: "24/7 Booking",
+    badgeStyle: "bg-accent-coral/15 text-accent-coral border-accent-coral/30",
+    title: "Instant WhatsApp Booking",
+    subtitle: "1-Tap Booking • Fast Calls",
+    statusTag: "< 30s Lead Confirmation",
+    tagColor: "text-accent-coral",
+    iconBg: "bg-gradient-to-br from-[#55d8c8]/20 to-[#00c7c7]/10",
+    iconColor: "text-emerald-400",
+    stat1: "< 30s",
+    label1: "Front-Desk Response",
+    sub1: "Instant automated WhatsApp",
+    stat2: "43%",
+    label2: "After-Hours Bookings",
+    sub2: "Captured while clinic is shut",
+    stat3: "0",
+    label3: "Lost Inquiries",
+    sub3: "100% CRM & calendar synced",
+    eyebrow: "24/7 Front-Desk Booking Automation",
+    headline: "Instant WhatsApp Conversion Engine",
+    description: "Convert ad clicks and website visitors straight into scheduled clinic consults with instant front-desk WhatsApp alerts and zero manual drop-offs."
+  }
+];
+---
+
+<div class="hero-engine-wrapper relative w-full pt-8 pb-4 select-none" id="heroInteractiveStage">
+  <!-- Ambient backdrop lighting glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[850px] h-[360px] rounded-full blur-[110px] pointer-events-none opacity-40 dark:opacity-25" style="background: radial-gradient(circle, #00c7c7 0%, #ffc15a 50%, transparent 75%);"></div>
+
+  <!-- 3D Perspective Stage -->
+  <div class="perspective-stage relative px-3 sm:px-6 py-8 sm:py-12 lg:py-16" style="perspective: 1200px;">
+    
+    <!-- 3D Tilting Rig -->
+    <div id="tiltRig" class="tilt-rig relative w-full max-w-4xl mx-auto transform-gpu transition-transform duration-150 ease-out" style="transform-style: preserve-3d;">
+      
+      <!-- =========================================================
+           CENTER ENGINE CARD (Main Cockpit)
+           ========================================================= -->
+      <div 
+        id="centerEngineCard" 
+        class="center-card relative bg-[#0e0e13] text-white border border-white/15 rounded-[24px] sm:rounded-[30px] p-6 sm:p-9 md:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.35)] backdrop-blur-xl z-10 transition-all duration-300"
+        style="transform: translateZ(0px);"
+      >
+        <!-- Subtle inner highlight gradient -->
+        <div class="absolute inset-0 rounded-[24px] sm:rounded-[30px] bg-gradient-to-b from-white/[0.08] via-transparent to-black/30 pointer-events-none"></div>
+
+        <!-- Top Status Bar -->
+        <div class="relative flex items-center justify-between gap-3 mb-6 sm:mb-8">
+          <!-- Active Engine Pill with Glowing Pulse -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/[0.08] border border-white/15 backdrop-blur-md">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span class="text-[11px] font-mono font-semibold tracking-wider text-emerald-300 uppercase">
+              DERMAARC / ACTIVE
+            </span>
+          </div>
+
+          <!-- Secondary Mode / Sync Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/70 text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
+            <span id="activeModeLabel" class="hidden sm:inline">ENGINE: CLINICAL V2.4</span>
+            <span class="sm:hidden">V2.4</span>
+          </div>
+        </div>
+
+        <!-- Eyebrow Badge -->
+        <div class="relative inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-accent-gold/15 text-accent-gold border border-accent-gold/30 mb-4 transition-all duration-300" id="engineEyebrow">
+          <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+          </svg>
+          <span id="engineEyebrowText">Specialized Clinical Acquisition Engine</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h3 id="engineHeadline" class="relative font-display font-bold text-white text-2xl sm:text-3xl md:text-4xl tracking-tight leading-tight mb-3 transition-opacity duration-200">
+          High-Speed Patient Acquisition Engine
+        </h3>
+
+        <!-- Subtitle -->
+        <p id="engineDescription" class="relative font-body font-light text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-8 transition-opacity duration-200">
+          Sub-2s procedure pages, hyper-local Meta campaigns, and automated WhatsApp appointment routing engineered exclusively for skin & aesthetic clinics.
+        </p>
+
+        <!-- 3 Feature Columns (Fast / Clean / Direct Metrics) -->
+        <div class="relative grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-white/10 text-left">
+          <!-- Column 1 -->
+          <div class="px-2 sm:px-4">
+            <div id="stat1" class="font-display font-bold text-white text-lg sm:text-2xl md:text-3xl tracking-tight transition-transform duration-200">
+              Sub-2s
+            </div>
+            <div id="label1" class="text-xs sm:text-sm font-semibold text-white/90 mt-1 truncate">
+              Mobile-First Speed
+            </div>
+            <div id="sub1" class="text-[11px] text-white/50 hidden sm:block truncate mt-0.5">
+              53% lower bounce
+            </div>
+          </div>
+
+          <!-- Column 2 (Border Left) -->
+          <div class="px-2 sm:px-4 border-l border-white/10">
+            <div id="stat2" class="font-display font-bold text-white text-lg sm:text-2xl md:text-3xl tracking-tight transition-transform duration-200">
+              Top 3
+            </div>
+            <div id="label2" class="text-xs sm:text-sm font-semibold text-white/90 mt-1 truncate">
+              Google Maps Rank
+            </div>
+            <div id="sub2" class="text-[11px] text-white/50 hidden sm:block truncate mt-0.5">
+              High-intent OPD leads
+            </div>
+          </div>
+
+          <!-- Column 3 (Border Left) -->
+          <div class="px-2 sm:px-4 border-l border-white/10">
+            <div id="stat3" class="font-display font-bold text-accent-teal text-lg sm:text-2xl md:text-3xl tracking-tight transition-transform duration-200">
+              18–25
+            </div>
+            <div id="label3" class="text-xs sm:text-sm font-semibold text-white/90 mt-1 truncate">
+              Patients / Mo
+            </div>
+            <div id="sub3" class="text-[11px] text-white/50 hidden sm:block truncate mt-0.5">
+              Verified consultations
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- =========================================================
+           4 FLOATING SATELLITE CARDS (As in reference video)
+           Positioned with 3D depth and parallax around the center
+           ========================================================= -->
+
+      <!-- Card 1: Top-Left (Clinical Dermatology) -->
+      <div 
+        class="satellite-card absolute -top-8 -left-3 sm:-top-10 sm:-left-6 lg:-top-12 lg:-left-12 z-20 cursor-pointer transition-all duration-300"
+        data-vertical="clinical"
+        data-depth="45"
+        style="transform-style: preserve-3d;"
+      >
+        <div class="card-inner group w-56 sm:w-64 bg-white/95 dark:bg-[#15151c]/95 backdrop-blur-md border border-neutral-200/90 dark:border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-[0_16px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all duration-200 hover:scale-105 active:scale-95">
+          <!-- Top Category & Tag -->
+          <div class="flex items-center justify-between gap-1 mb-2.5">
+            <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-neutral-500 dark:text-neutral-400">
+              CLINICAL PRACTICE
+            </span>
+            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-accent-teal/15 text-accent-teal border border-accent-teal/30">
+              Top 3 Maps
+            </span>
+          </div>
+          <!-- Icon & Info -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-[12px] bg-gradient-to-br from-[#00c7c7]/20 to-[#55d8c8]/10 flex items-center justify-center shrink-0 text-accent-teal border border-accent-teal/20">
+              <!-- Medical Cross / Clinic SVG -->
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="font-display font-bold text-sm text-neutral-900 dark:text-white leading-tight truncate">
+                Acne & Clinical Skin
+              </div>
+              <div class="text-[11px] text-neutral-500 dark:text-neutral-400 font-body leading-tight truncate mt-0.5">
+                Acne • Eczema • Psoriasis
+              </div>
+              <div class="text-[10px] font-semibold text-accent-teal mt-1 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent-teal"></span>
+                +22 OPD Walk-ins/mo
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Top-Right (Cosmetic & Laser) -->
+      <div 
+        class="satellite-card absolute -top-8 -right-3 sm:-top-10 sm:-right-6 lg:-top-12 lg:-right-12 z-20 cursor-pointer transition-all duration-300"
+        data-vertical="cosmetic"
+        data-depth="40"
+        style="transform-style: preserve-3d;"
+      >
+        <div class="card-inner group w-56 sm:w-64 bg-white/95 dark:bg-[#15151c]/95 backdrop-blur-md border border-neutral-200/90 dark:border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-[0_16px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all duration-200 hover:scale-105 active:scale-95">
+          <!-- Top Category & Tag -->
+          <div class="flex items-center justify-between gap-1 mb-2.5">
+            <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-neutral-500 dark:text-neutral-400">
+              COSMETIC & LASER
+            </span>
+            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-accent-gold/15 text-accent-gold border border-accent-gold/30">
+              High-Ticket
+            </span>
+          </div>
+          <!-- Icon & Info -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-[12px] bg-gradient-to-br from-[#ffc15a]/20 to-[#ff8a3d]/10 flex items-center justify-center shrink-0 text-accent-gold border border-accent-gold/20">
+              <!-- Laser / Sparkle SVG -->
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="font-display font-bold text-sm text-neutral-900 dark:text-white leading-tight truncate">
+                Laser & Aesthetics
+              </div>
+              <div class="text-[11px] text-neutral-500 dark:text-neutral-400 font-body leading-tight truncate mt-0.5">
+                Acne Scars • MNRF • Peels
+              </div>
+              <div class="text-[10px] font-semibold text-accent-gold mt-1 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent-gold"></span>
+                ₹45k Avg Treatment
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Bottom-Left (Hair Restoration & PRP) -->
+      <div 
+        class="satellite-card absolute -bottom-8 -left-3 sm:-bottom-10 sm:-left-6 lg:-bottom-12 lg:-left-12 z-20 cursor-pointer transition-all duration-300"
+        data-vertical="hair"
+        data-depth="35"
+        style="transform-style: preserve-3d;"
+      >
+        <div class="card-inner group w-56 sm:w-64 bg-white/95 dark:bg-[#15151c]/95 backdrop-blur-md border border-neutral-200/90 dark:border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-[0_16px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all duration-200 hover:scale-105 active:scale-95">
+          <!-- Top Category & Tag -->
+          <div class="flex items-center justify-between gap-1 mb-2.5">
+            <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-neutral-500 dark:text-neutral-400">
+              TRICHOLOGY & PRP
+            </span>
+            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-accent-orange/15 text-accent-orange border border-accent-orange/30">
+              High-Margin
+            </span>
+          </div>
+          <!-- Icon & Info -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-[12px] bg-gradient-to-br from-[#ff8a3d]/20 to-[#f45135]/10 flex items-center justify-center shrink-0 text-accent-orange border border-accent-orange/20">
+              <!-- Hair / Pulse SVG -->
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="font-display font-bold text-sm text-neutral-900 dark:text-white leading-tight truncate">
+                Hair PRP & GFC Studio
+              </div>
+              <div class="text-[11px] text-neutral-500 dark:text-neutral-400 font-body leading-tight truncate mt-0.5">
+                Hair Loss • GFC • Transplants
+              </div>
+              <div class="text-[10px] font-semibold text-accent-orange mt-1 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent-orange"></span>
+                3.4x ROI Tracked
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Bottom-Right (WhatsApp Front-Desk Sync) -->
+      <div 
+        class="satellite-card absolute -bottom-8 -right-3 sm:-bottom-10 sm:-right-6 lg:-bottom-12 lg:-right-12 z-20 cursor-pointer transition-all duration-300"
+        data-vertical="automation"
+        data-depth="40"
+        style="transform-style: preserve-3d;"
+      >
+        <div class="card-inner group w-56 sm:w-64 bg-white/95 dark:bg-[#15151c]/95 backdrop-blur-md border border-neutral-200/90 dark:border-white/15 rounded-2xl p-3.5 sm:p-4 shadow-[0_16px_36px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_40px_rgba(0,0,0,0.5)] transition-all duration-200 hover:scale-105 active:scale-95">
+          <!-- Top Category & Tag -->
+          <div class="flex items-center justify-between gap-1 mb-2.5">
+            <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-neutral-500 dark:text-neutral-400">
+              FRONT-DESK SYNC
+            </span>
+            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-accent-coral/15 text-accent-coral border border-accent-coral/30">
+              Instant Calls
+            </span>
+          </div>
+          <!-- Icon & Info -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-[12px] bg-gradient-to-br from-[#55d8c8]/20 to-[#00c7c7]/10 flex items-center justify-center shrink-0 text-emerald-400 border border-emerald-400/20">
+              <!-- WhatsApp / Chat SVG -->
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="font-display font-bold text-sm text-neutral-900 dark:text-white leading-tight truncate">
+                Instant WhatsApp Booking
+              </div>
+              <div class="text-[11px] text-neutral-500 dark:text-neutral-400 font-body leading-tight truncate mt-0.5">
+                Local Inquiries • Fast Response
+              </div>
+              <div class="text-[10px] font-semibold text-emerald-500 dark:text-emerald-400 mt-1 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                &lt; 30s Confirmation
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile / Quick Selector Tabs Bar (Displays below stage for easy mobile tap) -->
+  <div class="flex items-center justify-center gap-2 mt-4 max-w-lg mx-auto px-4 overflow-x-auto no-scrollbar">
+    {verticals.map((v, i) => (
+      <button
+        type="button"
+        class={`engine-tab-btn px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border whitespace-nowrap ${
+          i === 0 
+            ? "bg-neutral-900 text-white border-neutral-900 dark:bg-white dark:text-black dark:border-white shadow-sm" 
+            : "bg-white/60 dark:bg-white/5 text-neutral-600 dark:text-neutral-400 border-neutral-200 dark:border-white/10 hover:bg-neutral-100 dark:hover:bg-white/10"
+        }`}
+        data-target={v.id}
+      >
+        {v.category.split(" ")[0]}
+      </button>
+    ))}
+  </div>
+  <p class="text-center text-text-faint text-xs font-body mt-3">
+    Interactive 3D Preview · Move mouse to tilt · Click cards to explore clinic engines
+  </p>
+</div>
+
+<script>
+  // Interactive 3D Parallax Tilt & Clinic Vertical Switching Logic
+  document.addEventListener("DOMContentLoaded", () => {
+    const stage = document.getElementById("heroInteractiveStage");
+    const tiltRig = document.getElementById("tiltRig");
+    const satelliteCards = document.querySelectorAll<HTMLElement>(".satellite-card");
+    const tabBtns = document.querySelectorAll<HTMLButtonElement>(".engine-tab-btn");
+
+    // Center engine dynamic elements
+    const activeModeLabel = document.getElementById("activeModeLabel");
+    const engineEyebrow = document.getElementById("engineEyebrow");
+    const engineEyebrowText = document.getElementById("engineEyebrowText");
+    const engineHeadline = document.getElementById("engineHeadline");
+    const engineDescription = document.getElementById("engineDescription");
+    const stat1 = document.getElementById("stat1");
+    const label1 = document.getElementById("label1");
+    const sub1 = document.getElementById("sub1");
+    const stat2 = document.getElementById("stat2");
+    const label2 = document.getElementById("label2");
+    const sub2 = document.getElementById("sub2");
+    const stat3 = document.getElementById("stat3");
+    const label3 = document.getElementById("label3");
+    const sub3 = document.getElementById("sub3");
+
+    // Clinic verticals data dictionary
+    const verticalData: Record<string, {
+      category: string;
+      eyebrow: string;
+      eyebrowBadgeStyle: string;
+      headline: string;
+      description: string;
+      stat1: string;
+      label1: string;
+      sub1: string;
+      stat2: string;
+      label2: string;
+      sub2: string;
+      stat3: string;
+      label3: string;
+      sub3: string;
+      stat3Color: string;
+    }> = {
+      clinical: {
+        category: "ENGINE: CLINICAL V2.4",
+        eyebrow: "Specialized Clinical Acquisition Engine",
+        eyebrowBadgeStyle: "bg-accent-teal/15 text-accent-teal border-accent-teal/30",
+        headline: "High-Speed Patient Acquisition Engine",
+        description: "Sub-2s procedure pages, hyper-local Meta campaigns, and automated WhatsApp appointment routing engineered exclusively for skin & aesthetic clinics.",
+        stat1: "Sub-2s",
+        label1: "Mobile-First Speed",
+        sub1: "53% lower bounce",
+        stat2: "Top 3",
+        label2: "Google Maps Rank",
+        sub2: "High-intent OPD leads",
+        stat3: "18–25",
+        label3: "Patients / Clinic / Mo",
+        sub3: "Verified consultations",
+        stat3Color: "text-accent-teal"
+      },
+      cosmetic: {
+        category: "ENGINE: COSMETIC & LASER",
+        eyebrow: "High-Ticket Aesthetic Booking Engine",
+        eyebrowBadgeStyle: "bg-accent-gold/15 text-accent-gold border-accent-gold/30",
+        headline: "High-Ticket Procedure Booking System",
+        description: "Targeted procedure funnels and premium visual creatives designed to attract affluent patients ready to book full-course laser & aesthetic packages.",
+        stat1: "₹3.8L+",
+        label1: "Added Procedure Rev",
+        sub1: "Monthly high-margin billings",
+        stat2: "14–18",
+        label2: "Laser Consults",
+        sub2: "Pre-qualified patient inquiries",
+        stat3: "3.8x",
+        label3: "Verified Meta ROAS",
+        sub3: "Zero ad budget leakage",
+        stat3Color: "text-accent-gold"
+      },
+      hair: {
+        category: "ENGINE: HAIR PRP & GFC",
+        eyebrow: "Trichology & Hair Scale Engine",
+        eyebrowBadgeStyle: "bg-accent-orange/15 text-accent-orange border-accent-orange/30",
+        headline: "Predictable Hair Restoration Pipeline",
+        description: "Generate consistent, high-value inquiries for hair thinning, PRP therapy, and GFC treatments with localized intent targeting and automated follow-ups.",
+        stat1: "12–16",
+        label1: "PRP & GFC Packages",
+        sub1: "Multi-session closed plans",
+        stat2: "₹3,200",
+        label2: "Cost Per Patient",
+        sub2: "5–10 km clinic geo-radius",
+        stat3: "88%",
+        label3: "Show-Up Ratio",
+        sub3: "WhatsApp calendar sync",
+        stat3Color: "text-accent-orange"
+      },
+      automation: {
+        category: "ENGINE: WHATSAPP 24/7",
+        eyebrow: "24/7 Front-Desk Booking Automation",
+        eyebrowBadgeStyle: "bg-accent-coral/15 text-accent-coral border-accent-coral/30",
+        headline: "Instant WhatsApp Conversion Engine",
+        description: "Convert ad clicks and website visitors straight into scheduled clinic consults with instant front-desk WhatsApp alerts and zero manual drop-offs.",
+        stat1: "< 30s",
+        label1: "Front-Desk Response",
+        sub1: "Instant automated WhatsApp",
+        stat2: "43%",
+        label2: "After-Hours Bookings",
+        sub2: "Captured while clinic is shut",
+        stat3: "0",
+        label3: "Lost Inquiries",
+        sub3: "100% CRM & calendar synced",
+        stat3Color: "text-emerald-400"
+      }
+    };
+
+    let activeKey = "clinical";
+
+    function updateActiveVertical(key: string) {
+      if (!verticalData[key]) return;
+      activeKey = key;
+      const data = verticalData[key];
+
+      // Update Center texts with slight fade transition
+      if (engineHeadline && engineDescription) {
+        engineHeadline.style.opacity = "0.3";
+        engineDescription.style.opacity = "0.3";
+
+        setTimeout(() => {
+          if (activeModeLabel) activeModeLabel.textContent = data.category;
+          if (engineEyebrowText) engineEyebrowText.textContent = data.eyebrow;
+          engineHeadline.textContent = data.headline;
+          engineDescription.textContent = data.description;
+
+          if (stat1) stat1.textContent = data.stat1;
+          if (label1) label1.textContent = data.label1;
+          if (sub1) sub1.textContent = data.sub1;
+
+          if (stat2) stat2.textContent = data.stat2;
+          if (label2) label2.textContent = data.label2;
+          if (sub2) sub2.textContent = data.sub2;
+
+          if (stat3) {
+            stat3.textContent = data.stat3;
+            stat3.className = `font-display font-bold text-lg sm:text-2xl md:text-3xl tracking-tight transition-transform duration-200 ${data.stat3Color}`;
+          }
+          if (label3) label3.textContent = data.label3;
+          if (sub3) sub3.textContent = data.sub3;
+
+          engineHeadline.style.opacity = "1";
+          engineDescription.style.opacity = "1";
+        }, 120);
+      }
+
+      // Update satellite card highlight state
+      satelliteCards.forEach((card) => {
+        const vKey = card.dataset.vertical;
+        const inner = card.querySelector<HTMLElement>(".card-inner");
+        if (inner) {
+          if (vKey === key) {
+            inner.classList.add("ring-2", "ring-accent-teal", "dark:ring-accent-teal", "scale-[1.03]");
+            inner.classList.remove("border-neutral-200/90", "dark:border-white/15");
+          } else {
+            inner.classList.remove("ring-2", "ring-accent-teal", "dark:ring-accent-teal", "scale-[1.03]");
+            inner.classList.add("border-neutral-200/90", "dark:border-white/15");
+          }
+        }
+      });
+
+      // Update tabs state
+      tabBtns.forEach((btn) => {
+        const target = btn.dataset.target;
+        if (target === key) {
+          btn.className = "engine-tab-btn px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border whitespace-nowrap bg-neutral-900 text-white border-neutral-900 dark:bg-white dark:text-black dark:border-white shadow-sm";
+        } else {
+          btn.className = "engine-tab-btn px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border whitespace-nowrap bg-white/60 dark:bg-white/5 text-neutral-600 dark:text-neutral-400 border-neutral-200 dark:border-white/10 hover:bg-neutral-100 dark:hover:bg-white/10";
+        }
+      });
+    }
+
+    // Set initial active state
+    updateActiveVertical("clinical");
+
+    // Auto-rotate cycle through verticals
+    const keys = ["clinical", "cosmetic", "hair", "automation"];
+    let isUserInteracting = false;
+    let autoRotateTimer: number | null = null;
+
+    function startAutoRotate() {
+      if (autoRotateTimer) clearInterval(autoRotateTimer);
+      autoRotateTimer = window.setInterval(() => {
+        if (!isUserInteracting) {
+          const currentIdx = keys.indexOf(activeKey);
+          const nextKey = keys[(currentIdx + 1) % keys.length];
+          updateActiveVertical(nextKey);
+        }
+      }, 5500);
+    }
+    startAutoRotate();
+
+    // Hover / Click on satellite cards
+    satelliteCards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        isUserInteracting = true;
+        const vKey = card.dataset.vertical;
+        if (vKey) updateActiveVertical(vKey);
+      });
+      card.addEventListener("click", () => {
+        isUserInteracting = true;
+        const vKey = card.dataset.vertical;
+        if (vKey) updateActiveVertical(vKey);
+      });
+    });
+
+    // Click on tab buttons
+    tabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        isUserInteracting = true;
+        const target = btn.dataset.target;
+        if (target) updateActiveVertical(target);
+      });
+    });
+
+    stage?.addEventListener("mouseenter", () => {
+      isUserInteracting = true;
+    });
+
+    stage?.addEventListener("mouseleave", () => {
+      isUserInteracting = false;
+    });
+
+    // -------------------------------------------------------------
+    // 3D Parallax & Mousemove Tilt Engine
+    // -------------------------------------------------------------
+    if (!stage || !tiltRig) return;
+
+    // Check prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentTiltX = 0;
+    let currentTiltY = 0;
+    const maxTilt = 7; // Max tilt degrees
+
+    function onMouseMove(e: MouseEvent) {
+      if (!stage) return;
+      const rect = stage.getBoundingClientRect();
+      // Normalized between -1 and +1
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      mouseX = (x - 0.5) * 2;
+      mouseY = (y - 0.5) * 2;
+    }
+
+    function onMouseLeave() {
+      mouseX = 0;
+      mouseY = 0;
+    }
+
+    stage.addEventListener("mousemove", onMouseMove);
+    stage.addEventListener("mouseleave", onMouseLeave);
+
+    let startTime = performance.now();
+
+    function renderLoop() {
+      const now = performance.now();
+      const elapsed = (now - startTime) / 1000;
+
+      // Silky lerp interpolation
+      const targetTiltX = -mouseY * maxTilt;
+      const targetTiltY = mouseX * maxTilt;
+      currentTiltX += (targetTiltX - currentTiltX) * 0.08;
+      currentTiltY += (targetTiltY - currentTiltY) * 0.08;
+
+      if (tiltRig) {
+        tiltRig.style.transform = `rotateX(${currentTiltX.toFixed(2)}deg) rotateY(${currentTiltY.toFixed(2)}deg)`;
+      }
+
+      // Satellite cards multi-depth parallax and gentle floating oscillation
+      satelliteCards.forEach((card, idx) => {
+        const depth = parseFloat(card.dataset.depth || "30");
+        // Gentle float oscillation
+        const floatOffset = Math.sin(elapsed * 1.5 + idx * 1.6) * 4;
+        const shiftX = currentTiltY * (depth / 20);
+        const shiftY = -currentTiltX * (depth / 20);
+
+        card.style.transform = `translate3d(${shiftX.toFixed(1)}px, ${(shiftY + floatOffset).toFixed(1)}px, ${depth}px)`;
+      });
+
+      requestAnimationFrame(renderLoop);
+    }
+
+    requestAnimationFrame(renderLoop);
+  });
+</script>
+
+<style>
+  /* Ensure 3D rendering context is preserved */
+  .perspective-stage {
+    transform-style: preserve-3d;
+  }
+  .tilt-rig {
+    transform-style: preserve-3d;
+  }
+  .satellite-card {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+  .center-card {
+    will-change: transform;
+  }
+
+  /* Hide scrollbar on tabs */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Responsive layout tweaks on small screens */
+  @media (max-width: 768px) {
+    .satellite-card {
+      /* On mobile screens, slightly scale and tuck so they don't clip horizontally */
+      max-width: 46%;
+    }
+    .satellite-card .card-inner {
+      width: 100% !important;
+      padding: 8px !important;
+    }
+  }
+
+  @media (max-width: 640px) {
+    /* On tiny mobile screens, satellite cards convert into an elegant 2x2 grid below or tight floating chips */
+    .satellite-card {
+      display: none; /* Mobile users use the sleek interactive tab selector and prominent center card */
+    }
+  }
+</style>
