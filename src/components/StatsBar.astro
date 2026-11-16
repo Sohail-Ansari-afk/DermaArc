@@ -1,26 +1,36 @@
 ---
 // Stats Bar — key metrics with Indian context
 const stats = [
-  { value: "₹14.94", label: "Cost Per Qualified Lead", prefix: "" },
-  { value: "61K+", label: "Local Residents Reached", prefix: "" },
-  { value: "15–30+", label: "Patient Consultations / Mo", prefix: "" },
-  { value: "₹30K", label: "All-Inclusive Monthly Retainer", prefix: "" },
+  { value: "₹14.94", label: "Cost Per Qualified Lead" },
+  { value: "61K+",   label: "Local Residents Reached" },
+  { value: "15–30+", label: "Patient Consultations / Mo" },
+  { value: "1 Clinic", label: "Per Area Exclusivity" },
 ];
 ---
 
-<section id="stats" class="section bg-canvas-soft">
-  <div class="container-main">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
-      {stats.map((stat) => (
-        <div class="text-center group">
-          <div class="font-display font-bold text-ink mb-2" style="font-size: clamp(28px, 3.5vw, 48px); line-height: 1.0;">
-            {stat.value}
+<section
+  id="stats"
+  style="background-color: var(--bg-canvas-cream); border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline);"
+>
+  <div class="container-main" style="padding-block: 48px;">
+    <div class="card-cream" style="padding: 32px;">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+        {stats.map((stat) => (
+          <div class="text-center">
+            <div
+              class="money-fig"
+              style="font-family: var(--font-display); font-weight: 300; font-size: 32px; letter-spacing: -0.64px; line-height: 1.0; color: var(--text-ink);"
+            >
+              {stat.value}
+            </div>
+            <p
+              style="font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: -0.39px; color: var(--text-ink-mute); margin-top: 8px;"
+            >
+              {stat.label}
+            </p>
           </div>
-          <p class="text-text-muted font-body text-sm">
-            {stat.label}
-          </p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 </section>

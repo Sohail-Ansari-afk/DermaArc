@@ -1,97 +1,145 @@
 ---
-// Pricing Section — Transparent ₹30,000/month pricing
+// Partnership & Growth Blueprint Section — Option 3: Scarcity & 3-Step Diagnostic Onboarding
+// Follows Stripe DESIGN.md: card-pricing-featured in brand-dark-900 (#1c1e54),
+// Area exclusivity hook (replaces fixed ₹30,000/mo), Inter weight 300 typography.
+
 const included = [
-  "Conversion-first clinic website / landing pages",
+  "Conversion-first clinic website & treatment landing pages",
   "Hyper-local Meta ad campaigns (Instagram + Facebook)",
-  "Google Business Profile optimisation & local SEO",
-  "12–15 Instagram posts + Reel scripts per month",
-  "1-tap WhatsApp booking integration",
-  "Front-desk WhatsApp lead alerts",
-  "5-star review QR code stands setup",
-  "Monthly performance report (Inquiries, CPL, Walk-Ins)",
-  "NMC / medical advertising compliance",
-  "Dedicated account manager",
+  "Google Business Profile optimisation & local Map Pack SEO",
+  "12–15 authority Instagram posts + silent UGC & Reel scripts/month",
+  "1-tap WhatsApp / SMS instant patient booking integration",
+  "Automated front-desk lead alerts & no-show reminder flows",
+  "Automated post-visit 5-star Google review generation system",
+  "Live monthly attribution report (Inquiries, CPL, Booked Walk-Ins)",
+  "100% compliant with ethical medical advertising standards",
+  "Dedicated clinic growth manager",
 ];
 
-const notIncluded = [
-  "Ad spend (recommended ₹100–150/day to start)",
-  "Domain & hosting fees",
-  "Professional photography / videography",
+const onboardingSteps = [
+  {
+    step: "01",
+    day: "Day 1",
+    title: "Free Pin-Code / Area Audit",
+    detail: "We audit your current Google Maps rank, website conversion leaks, and local competitor ad spend.",
+  },
+  {
+    step: "02",
+    day: "Day 2",
+    title: "Custom Funnel & Retainer Proposal",
+    detail: "You get a tailored monthly growth roadmap and transparent retainer matched to your chair capacity.",
+  },
+  {
+    step: "03",
+    day: "Days 3–14",
+    title: "Full 4-Pillar Launch",
+    detail: "Your landing page, local SEO, Instagram reels, and Meta campaigns go live with instant reception lead alerts.",
+  },
 ];
 ---
 
-<section id="pricing" class="section-lg">
+<section id="pricing" class="section-lg bg-canvas">
   <div class="container-main">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">Transparent pricing</p>
-      <h2 class="font-display font-bold text-ink mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.13;">
-        One plan. Everything included.
+      <p class="eyebrow text-ink-mute mb-3">Tailored Clinic Partnerships</p>
+      <h2 class="font-display font-light text-ink mb-4" style="font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.96px; line-height: 1.15; text-wrap: balance;">
+        One system. Custom-built for your clinic.
       </h2>
-      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
-        No hidden fees, no upsells, no "packages". Every clinic gets the full 4-Pillar System for one predictable monthly retainer.
+      <p class="text-ink-mute font-body font-light text-base max-w-2xl mx-auto leading-relaxed">
+        Every clinic has different treatment margins, chair capacity, and local competition. We tailor your 4-Pillar Patient Acquisition Engine—and lock out your local competitors.
       </p>
     </div>
 
-    <!-- Pricing Card -->
+    <!-- Scarcity & Blueprint Card: Stripe Featured Tier (Dark Navy Surface) -->
     <div class="max-w-2xl mx-auto">
-      <div class="card-featured p-5 sm:p-8 md:p-12">
-        <!-- Badge -->
-        <div class="flex items-center gap-3 mb-6">
-          <span class="badge-accent">All-Inclusive</span>
-          <span class="text-text-muted font-body text-xs">No contracts · Cancel anytime</span>
+      <div class="card-featured p-6 sm:p-10 md:p-12 relative overflow-hidden" style="border: 1px solid rgba(255, 255, 255, 0.12);">
+        <!-- Subtle ambient radial highlight inside card -->
+        <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full pointer-events-none opacity-20" style="background: radial-gradient(circle, #533afd 0%, transparent 70%);"></div>
+
+        <!-- Badge & Scarcity Tagline -->
+        <div class="flex items-center justify-between gap-3 mb-8 flex-wrap">
+          <span class="badge-accent" style="background-color: rgba(185, 185, 249, 0.2); color: #b9b9f9;">
+            EXCLUSIVE AREA PARTNER
+          </span>
+          <span class="font-body text-xs font-light text-slate-300">
+            No lock-in contracts · Cancel anytime
+          </span>
         </div>
 
-        <!-- Price -->
+        <!-- Scarcity Hero Display (Replaces fixed price tag) -->
         <div class="mb-8">
-          <div class="flex items-baseline gap-2">
-            <span class="font-display font-bold text-ink" style="font-size: clamp(48px, 6vw, 72px); line-height: 1.0;">₹30,000</span>
-            <span class="text-text-muted font-body text-lg font-light">/month</span>
+          <div class="flex items-baseline gap-3 flex-wrap">
+            <span
+              class="font-display font-light text-white"
+              style="font-size: clamp(38px, 5.5vw, 56px); letter-spacing: -1.2px; line-height: 1.05;"
+            >
+              1 Clinic Per Area
+            </span>
+            <span class="badge-accent text-[10px]" style="background-color: rgba(0, 199, 199, 0.2); color: #55d8c8;">
+              Strict Exclusivity
+            </span>
           </div>
-          <p class="text-text-muted font-body text-sm mt-2">
-            + GST · Recommended ad spend: ₹3,000–4,500/month
+          <p class="text-slate-300 font-body text-xs sm:text-sm mt-3 font-light leading-relaxed">
+            Custom monthly retainer based on your clinic size, target radius &amp; priority procedures · Ad spend paid directly to Meta
           </p>
         </div>
 
-        <!-- Divider -->
-        <div class="border-t border-hairline mb-8"></div>
+        <!-- Hairline Divider -->
+        <div class="border-t border-white/10 mb-8"></div>
 
         <!-- What's Included -->
-        <h4 class="font-display text-base font-bold text-ink mb-4">Everything in the 4-Pillar System:</h4>
-        <ul class="space-y-3 mb-8">
+        <h4 class="font-display text-xs uppercase tracking-wider text-white font-medium mb-5">
+          EVERYTHING INCLUDED IN YOUR 4-PILLAR ENGINE:
+        </h4>
+        <ul class="space-y-3.5 mb-10">
           {included.map((item) => (
             <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-accent-teal shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-              </svg>
-              <span class="text-ink font-body text-sm">{item}</span>
+              <div class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background-color: rgba(83, 58, 253, 0.35);">
+                <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+              <span class="text-slate-100 font-body text-sm font-light leading-relaxed">{item}</span>
             </li>
           ))}
         </ul>
 
-        <!-- Not Included -->
-        <h4 class="font-display text-sm font-bold text-text-muted mb-3">Paid separately:</h4>
-        <ul class="space-y-2 mb-8">
-          {notIncluded.map((item) => (
-            <li class="flex items-start gap-3">
-              <svg class="w-4 h-4 text-text-faint shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span class="text-text-muted font-body text-sm">{item}</span>
-            </li>
-          ))}
-        </ul>
+        <!-- Hairline Divider -->
+        <div class="border-t border-white/10 mb-8"></div>
 
-        <!-- CTA -->
-        <a href="#inquiry-form" class="btn-primary w-full text-center h-14 text-base">
-          Start Growing Your Clinic →
+        <!-- Option 3: 3-Step What Happens Next Onboarding Preview -->
+        <h4 class="font-display text-xs uppercase tracking-wider text-slate-300 font-medium mb-5">
+          WHAT HAPPENS NEXT (3-STEP ONBOARDING):
+        </h4>
+        <div class="space-y-4 mb-10">
+          {onboardingSteps.map((s) => (
+            <div class="p-4 rounded-lg bg-white/[0.04] border border-white/10 flex items-start gap-3.5">
+              <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-white font-display text-xs font-medium" style="background-color: #533afd;">
+                {s.step}
+              </div>
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-white font-display text-sm font-light">{s.title}</span>
+                  <span class="eyebrow text-[9px] text-slate-400">({s.day})</span>
+                </div>
+                <p class="text-slate-300 font-body text-xs font-light leading-relaxed">
+                  {s.detail}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Single CTA Pill (Stripe Dominant CTA) -->
+        <a href="#inquiry-form" class="btn-primary w-full text-center">
+          Check Your Area Availability &amp; Get Custom Quote →
         </a>
 
-        <p class="text-text-faint font-body text-xs text-center mt-4">
-          No lock-in contract · Results in 30 days · Cancel anytime
+        <p class="text-slate-400 font-body text-xs text-center mt-4 font-light">
+          Takes 60 seconds · Free local competitor &amp; SEO audit included · Cancel anytime
         </p>
       </div>
     </div>
   </div>
 </section>
-

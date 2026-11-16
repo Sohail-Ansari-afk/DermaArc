@@ -1,6 +1,7 @@
 ---
 // FAQ Section — Comprehensive Dermatology Marketing FAQ with JSON-LD Schema
-// All 12 high-intent questions on dermatology patient acquisition, local SEO, Meta ads, and NMC compliance
+// Redesigned to Stripe DESIGN.md: Inter weight 300, tabular numeric figures (tnum),
+// hairline-bordered accordion items, card-cream warm interlude box, pill button CTA.
 
 interface FAQItem {
   question: string;
@@ -12,7 +13,7 @@ const faqs: FAQItem[] = [
   {
     category: "Website & Speed",
     question: "Do I need a brand-new website to market my dermatology practice?",
-    answer: "Not necessarily. If your existing website loads in under 2 seconds on mobile devices and features focused treatment pages with 1-tap WhatsApp booking, we can optimize and work with what you have. However, if your current site is a slow WordPress template taking 5+ seconds to load, you lose over 53% of mobile visitors before they even read your credentials (documented by Think with Google). As part of our ₹30,000/month 4-Pillar System, DermaArc engineers sub-2-second procedure funnels optimized for mobile conversion and after-hours booking capture.",
+    answer: "Not necessarily. If your existing website loads in under 2 seconds on mobile devices and features focused treatment pages with 1-tap WhatsApp booking, we can optimize and work with what you have. However, if your current site is a slow WordPress template taking 5+ seconds to load, you lose over 53% of mobile visitors before they even read your credentials (documented by Think with Google). As part of our tailored 4-Pillar System, DermaArc engineers sub-2-second procedure funnels optimized for mobile conversion and after-hours booking capture.",
   },
   {
     category: "Market Landscape",
@@ -89,45 +90,45 @@ const faqSchema = {
 <!-- JSON-LD FAQ Structured Data for Google Rich Results -->
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-<section id="faq" class="section-lg bg-canvas border-t border-hairline-soft">
+<section id="faq" class="section-lg bg-canvas border-t border-hairline">
   <div class="container-narrow">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <span class="badge-accent mb-4 inline-block">Direct Answers</span>
-      <h2 class="font-display font-bold text-ink mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.15;">
+      <p class="eyebrow text-ink-mute mb-3">Direct Answers</p>
+      <h2 class="font-display font-light text-ink mb-4" style="font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.96px; line-height: 1.15; text-wrap: balance;">
         Frequently Asked Questions.
       </h2>
-      <p class="text-text-muted font-body text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+      <p class="text-ink-mute font-body font-light text-base max-w-xl mx-auto leading-relaxed">
         Everything dermatologists and skin clinic founders ask about patient acquisition, Meta ads, Google Maps SEO, and NMC compliance.
       </p>
     </div>
 
     <!-- FAQ Accordion List -->
-    <div class="space-y-3.5">
+    <div class="space-y-3">
       {faqs.map((faq, i) => {
         const itemNumber = (i + 1).toString().padStart(2, "0");
         return (
           <details
-            class="group bg-canvas-soft border border-hairline-soft rounded-2xl overflow-hidden transition-all duration-200 hover:border-hairline"
+            class="group bg-canvas rounded-lg border border-hairline overflow-hidden transition-all duration-200 hover:border-hairline-input hover:shadow-sm"
             id={`faq-item-${i}`}
           >
-            <summary class="flex items-start sm:items-center justify-between gap-3 sm:gap-4 cursor-pointer px-4 sm:px-6 py-4 sm:py-5 list-none select-none">
-              <div class="flex items-start sm:items-center gap-2.5 sm:gap-4 flex-1">
-                <span class="text-xs font-mono text-text-faint font-medium pt-1 sm:pt-0 shrink-0">
+            <summary class="flex items-start sm:items-center justify-between gap-4 cursor-pointer p-5 sm:p-6 list-none select-none">
+              <div class="flex items-start sm:items-center gap-3 sm:gap-4 flex-1">
+                <span class="money-fig text-xs font-light text-ink-mute pt-1 sm:pt-0 shrink-0">
                   {itemNumber}
                 </span>
                 <div class="space-y-1">
                   {faq.category && (
-                    <span class="inline-block text-[10px] font-mono font-medium uppercase tracking-wider text-text-muted opacity-80">
+                    <span class="eyebrow text-primary-deep block">
                       {faq.category}
                     </span>
                   )}
-                  <h3 class="font-body text-base sm:text-lg font-medium text-ink leading-snug">
+                  <h3 class="font-display font-light text-ink text-base sm:text-lg leading-snug" style="letter-spacing: -0.2px;">
                     {faq.question}
                   </h3>
                 </div>
               </div>
-              <div class="w-8 h-8 rounded-full bg-field border border-hairline-soft flex items-center justify-center shrink-0 text-text-muted group-hover:text-ink transition-colors">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center shrink-0 border border-hairline text-ink-mute group-hover:text-primary group-hover:border-primary transition-colors">
                 <svg
                   class="w-4 h-4 transition-transform duration-200 group-open:rotate-45"
                   fill="none"
@@ -138,8 +139,8 @@ const faqSchema = {
                 </svg>
               </div>
             </summary>
-            <div class="px-4 sm:px-6 pb-5 sm:pb-6 pt-1 border-t border-hairline-soft/50 sm:ml-12">
-              <p class="text-text-muted font-body text-sm sm:text-base leading-relaxed">
+            <div class="px-5 sm:px-6 pb-6 pt-1 sm:ml-10 text-ink-secondary font-body font-light text-[15px] leading-relaxed border-t border-hairline/60">
+              <p class="pt-3">
                 {faq.answer}
               </p>
             </div>
@@ -148,13 +149,13 @@ const faqSchema = {
       })}
     </div>
 
-    <!-- Bottom Helper Prompt -->
-    <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-canvas-soft border border-hairline-soft flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+    <!-- Bottom Prompt: Stripe Card Cream Band -->
+    <div class="mt-12 card-cream flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
       <div>
-        <h4 class="font-display font-bold text-ink text-lg mb-1">
+        <h4 class="font-display font-light text-ink text-lg sm:text-xl mb-1" style="letter-spacing: -0.2px;">
           Have a question specific to your clinic or city?
         </h4>
-        <p class="font-body text-text-muted text-sm leading-relaxed">
+        <p class="font-body font-light text-ink-secondary text-sm leading-relaxed">
           Get direct advice on budgets, local competition, and patient acquisition in your area.
         </p>
       </div>
@@ -162,12 +163,9 @@ const faqSchema = {
         href="https://wa.me/919975568867?text=Hi%20DermaArc%2C%20I%20have%20a%20question%20about%20marketing%20my%20dermatology%20clinic."
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2 px-6 py-3 w-full sm:w-auto rounded-full bg-primary text-on-primary font-body font-semibold text-sm hover:opacity-90 transition-all duration-200 shadow-sm shrink-0"
+        class="btn-primary shrink-0"
       >
-        Ask on WhatsApp
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-        </svg>
+        Ask on WhatsApp →
       </a>
     </div>
   </div>

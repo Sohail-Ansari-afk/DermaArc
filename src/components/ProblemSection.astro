@@ -19,16 +19,19 @@ const problems = [
 ];
 ---
 
-<section id="problem" class="section-lg">
+<section id="problem" class="section" style="background-color: var(--bg-canvas-soft);">
   <div class="container-main">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">The problem</p>
-      <h2 class="font-display font-bold text-ink mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.13;">
+      <p class="badge-accent inline-block mb-4">The problem</p>
+      <h2 class="text-ink mb-4">
         Great dermatologists.<br class="hidden sm:block" />
         Invisible online.
       </h2>
-      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+      <p
+        class="max-w-2xl mx-auto"
+        style="font-size: 16px; line-height: 1.6; color: var(--text-ink-mute);"
+      >
         You spent years earning your MD. But online, aggressive med spa marketing is drowning out board-certified practices — and it's costing you patients every single day.
       </p>
     </div>
@@ -36,19 +39,22 @@ const problems = [
     <!-- Problem Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
       {problems.map((problem) => (
-        <div class="card-featured p-8">
-          <!-- Icon -->
-          <div class="w-12 h-12 rounded-full bg-canvas flex items-center justify-center mb-6">
+        <div class="card">
+          <!-- Icon Container -->
+          <div
+            class="w-12 h-12 flex items-center justify-center mb-6 rounded-lg"
+            style="background: var(--bg-canvas-soft); border: 1px solid var(--border-hairline); color: var(--brand-primary);"
+          >
             <Fragment set:html={problem.icon} />
           </div>
 
           <!-- Title -->
-          <h3 class="font-display text-xl font-bold text-ink mb-3">
+          <h4 class="text-ink mb-3">
             {problem.title}
-          </h3>
+          </h4>
 
           <!-- Description -->
-          <p class="text-text-muted font-body text-sm leading-relaxed">
+          <p style="font-size: 15px; line-height: 1.6; color: var(--text-ink-mute);">
             {problem.description}
           </p>
         </div>
@@ -57,7 +63,10 @@ const problems = [
 
     <!-- Bridge Statement -->
     <div class="text-center mt-16">
-      <p class="text-text-muted font-body text-base max-w-xl mx-auto mb-6">
+      <p
+        class="max-w-xl mx-auto mb-6"
+        style="font-size: 16px; line-height: 1.6; color: var(--text-ink-mute);"
+      >
         DermaArc fixes this. We replace your disconnected freelancers with one unified growth engine — built exclusively for dermatologists.
       </p>
       <a href="#clinic-types" class="btn-soft">
@@ -66,4 +75,3 @@ const problems = [
     </div>
   </div>
 </section>
-

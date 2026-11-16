@@ -52,16 +52,6 @@ const formattedOgImage = ogImage.startsWith("http")
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Prevent Theme Flash -->
-    <script is:inline>
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
-
     <!-- SEO & Crawler Directives -->
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
@@ -77,6 +67,12 @@ const formattedOgImage = ogImage.startsWith("http")
     <meta name="ai-content-declarations" content="original" />
     <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context for AI Assistants" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- Hreflang Regional Alternates -->
+    <link rel="alternate" hreflang="en-in" href="https://dermaarc.com/" />
+    <link rel="alternate" hreflang="en-gb" href="https://dermaarc.com/uk" />
+    <link rel="alternate" hreflang="en-us" href="https://dermaarc.com/us" />
+    <link rel="alternate" hreflang="x-default" href="https://dermaarc.com/" />
 
     <!-- Open Graph (Facebook / Meta / WhatsApp / LinkedIn) -->
     <meta property="og:type" content="website" />
@@ -113,7 +109,7 @@ const formattedOgImage = ogImage.startsWith("http")
           "logo": "https://dermaarc.com/favicon.svg",
           "image": formattedOgImage,
           "email": "official@dermaarc.com",
-          "priceRange": "₹30,000/month",
+          "priceRange": "Custom Retainer",
           "founder": {
             "@type": "Person",
             "name": "Sohail Ansari",
@@ -202,11 +198,11 @@ const formattedOgImage = ogImage.startsWith("http")
       ]
     })} />
 
-    <!-- Fonts: Bricolage Grotesque + DM Sans from Google Fonts -->
+    <!-- Fonts: Inter (open-source Sohne substitute) — weight 300 & 400 for Stripe design system -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>

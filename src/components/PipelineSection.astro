@@ -1,84 +1,132 @@
 ---
 // Pipeline Section — Medical-to-Cosmetic Patient Conversion
+// Styled as a Stripe composited dashboard mockup
 const stages = [
   {
     number: "01",
     label: "Attract",
     title: "Capture medical derm patients.",
     description: "SEO, local search, and Google Maps bring medical dermatology patients in the door — acne, eczema, skin checks, fungal infections.",
+    conversion: "100%",
+    volume: "1,200",
   },
   {
     number: "02",
     label: "Educate",
     title: "Introduce cosmetic options.",
     description: "Strategic in-office touchpoints, email sequences, and personalised Instagram content educate medical patients about complementary cosmetic treatments.",
+    conversion: "68%",
+    volume: "816",
   },
   {
     number: "03",
     label: "Convert",
     title: "Book the cash-pay procedure.",
     description: "Targeted Meta remarketing, treatment-specific WhatsApp funnels, and automated follow-ups convert educated patients into high-value cosmetic bookings.",
+    conversion: "34%",
+    volume: "408",
   },
   {
     number: "04",
     label: "Retain",
     title: "Build lifetime value.",
     description: "Review automation, WhatsApp loyalty sequences, and lifecycle campaigns turn one-time patients into recurring revenue and referral sources.",
+    conversion: "82%",
+    volume: "335",
   },
 ];
 ---
 
-<section id="pipeline" class="section-lg bg-[#0e0e13] border border-white/10 text-white rounded-[24px] mx-3 sm:mx-6 lg:mx-8">
+<section id="pipeline" class="section bg-canvas">
   <div class="container-main">
     <!-- Section Header -->
-    <div class="max-w-3xl mb-16">
-      <p class="text-zinc-400 font-body text-sm font-semibold uppercase tracking-wider mb-4">
-        Bonus framework
-      </p>
-      <h2 class="font-display font-bold text-white mb-4" style="font-size: clamp(30px, 4vw, 44px); line-height: 1.15;">
+    <div class="text-center mb-16">
+      <span class="badge-accent mb-4 inline-block">Bonus framework</span>
+      <h2 class="text-ink mb-4">
         The Medical-to-Cosmetic Pipeline.
       </h2>
-      <p class="text-zinc-300 font-body text-lg font-light leading-relaxed">
+      <p class="text-[15px] text-ink-mute max-w-2xl mx-auto" style="line-height:1.4;">
         Every dermatology practice sits on an untapped goldmine: medical patients who are ideal candidates for cosmetic treatments. Our pipeline framework turns that potential into predictable revenue.
       </p>
     </div>
 
-    <!-- Pipeline Stages -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {stages.map((stage, i) => (
-        <div class="bg-white/[0.04] border border-white/10 rounded-[24px] p-6 hover:bg-white/[0.08] transition-all duration-300">
-          <!-- Stage Number -->
-          <span class:list={[
-            "font-display text-sm font-bold mb-3 block",
-            i === 0 ? "text-accent-teal" : i === 1 ? "text-accent-aqua" : i === 2 ? "text-accent-gold" : "text-accent-coral",
-          ]}>
-            {stage.number} — {stage.label}
+    <!-- Dashboard Mockup Container -->
+    <div
+      class="bg-brand-dark rounded-[12px] p-6 sm:p-8 lg:p-10 max-w-5xl mx-auto"
+      style="box-shadow: rgba(0,55,112,0.08) 0 8px 24px, rgba(0,55,112,0.04) 0 2px 6px;"
+    >
+      <!-- Dashboard Header Bar -->
+      <div class="flex items-center justify-between mb-6 pb-4" style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div class="flex items-center gap-3">
+          <div class="w-2.5 h-2.5 rounded-full bg-primary-subdued"></div>
+          <span class="text-white/90 text-[14px] font-light" style="letter-spacing:-0.42px; font-feature-settings:'tnum';">
+            Patient Pipeline — Live Dashboard
           </span>
-
-          <!-- Title -->
-          <h3 class="font-display text-xl font-bold text-white mb-3">
-            {stage.title}
-          </h3>
-
-          <!-- Description -->
-          <p class="text-zinc-400 font-body text-sm leading-relaxed">
-            {stage.description}
-          </p>
         </div>
-      ))}
-    </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-accent-teal"></div>
+          <span class="text-white/50 text-[10px] uppercase" style="letter-spacing:0.1px; font-weight:400;">Active</span>
+        </div>
+      </div>
 
-    <!-- Pipeline Visual Bar -->
-    <div class="mt-12 hidden lg:block">
-      <div class="h-1.5 rounded-full w-full max-w-4xl mx-auto opacity-90" style="background: linear-gradient(90deg, #00c7c7 0%, #55d8c8 25%, #ffc15a 50%, #ff8a3d 75%, #f45135 100%);"></div>
+      <!-- Funnel Progress Bar -->
+      <div class="mb-8 hidden sm:block">
+        <div class="h-1 rounded-full w-full" style="background: linear-gradient(90deg, #533afd 0%, #665efd 30%, #b9b9f9 60%, rgba(185,185,249,0.3) 100%);"></div>
+      </div>
+
+      <!-- Pipeline Stage Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {stages.map((stage, i) => (
+          <div
+            class="rounded-[12px] p-5 transition-all duration-200"
+            style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);"
+          >
+            <!-- Stage Label -->
+            <div class="flex items-center gap-2 mb-3">
+              <span
+                class="text-[10px] uppercase text-primary-subdued"
+                style="letter-spacing:0.1px; font-weight:400;"
+              >
+                Stage {stage.number}
+              </span>
+            </div>
+
+            <!-- Conversion Metric -->
+            <div
+              class="text-white text-[26px] mb-1"
+              style="font-weight:300; letter-spacing:-0.26px; font-feature-settings:'tnum'; line-height:1.12;"
+            >
+              {stage.conversion}
+            </div>
+
+            <!-- Volume -->
+            <div
+              class="text-white/50 text-[14px] mb-4"
+              style="letter-spacing:-0.42px; font-feature-settings:'tnum';"
+            >
+              {stage.volume} patients
+            </div>
+
+            <!-- Stage Title -->
+            <h3
+              class="text-white text-[20px] mb-2"
+              style="font-weight:300; letter-spacing:-0.2px; line-height:1.4;"
+            >
+              {stage.label}: {stage.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="text-white/50 text-[15px]" style="line-height:1.4;">
+              {stage.description}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
 
     <!-- CTA -->
     <div class="mt-12 text-center">
-      <a
-        href="#inquiry-form"
-        class="inline-flex items-center justify-center gap-2 h-14 px-8 w-full sm:w-auto rounded-full bg-white text-zinc-950 font-body font-semibold text-base hover:bg-zinc-200 transition-all duration-200 shadow-md hover:-translate-y-0.5"
-      >
+      <a href="#inquiry-form" class="btn-primary">
         Get your custom pipeline plan →
       </a>
     </div>

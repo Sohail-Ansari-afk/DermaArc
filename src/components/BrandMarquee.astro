@@ -8,9 +8,13 @@ const cities = [
 ];
 ---
 
-<section id="brand-marquee" class="py-12 border-y border-hairline-soft overflow-hidden bg-canvas">
+<section
+  id="brand-marquee"
+  class="overflow-hidden"
+  style="background-color: var(--bg-canvas-soft); border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline); padding-block: 40px;"
+>
   <div class="w-full">
-    <p class="text-center text-text-faint font-body text-xs font-semibold uppercase tracking-wider mb-8">
+    <p class="eyebrow text-center mb-8" style="color: var(--text-ink-mute);">
       Trusted by dermatologists across India
     </p>
 
@@ -19,11 +23,11 @@ const cities = [
       <!-- Group 1 -->
       <div class="marquee-group flex shrink-0 items-center">
         {cities.map((city) => (
-          <div class="flex items-center gap-2.5 shrink-0 px-4 opacity-50 hover:opacity-100 transition-opacity duration-200">
-            <svg class="w-4 h-4 text-accent-teal shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <div class="city-chip flex items-center gap-2.5 shrink-0" style="margin-inline: 6px; padding: 8px 16px; border: 1px solid var(--border-hairline); border-radius: var(--radius-lg); background-color: var(--bg-canvas); transition: box-shadow 0.2s ease, opacity 0.2s ease;">
+            <svg class="w-4 h-4 shrink-0" style="fill: var(--brand-primary); opacity: 0.5;" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
             </svg>
-            <span class="text-ink font-display text-lg font-bold whitespace-nowrap">{city}</span>
+            <span class="whitespace-nowrap" style="font-family: var(--font-body); font-weight: 300; font-size: 15px; letter-spacing: -0.22px; color: var(--text-ink);">{city}</span>
           </div>
         ))}
       </div>
@@ -31,11 +35,11 @@ const cities = [
       <!-- Group 2 (Duplicate for Seamless Loop) -->
       <div class="marquee-group flex shrink-0 items-center" aria-hidden="true">
         {cities.map((city) => (
-          <div class="flex items-center gap-2.5 shrink-0 px-4 opacity-50 hover:opacity-100 transition-opacity duration-200">
-            <svg class="w-4 h-4 text-accent-teal shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <div class="city-chip flex items-center gap-2.5 shrink-0" style="margin-inline: 6px; padding: 8px 16px; border: 1px solid var(--border-hairline); border-radius: var(--radius-lg); background-color: var(--bg-canvas); transition: box-shadow 0.2s ease, opacity 0.2s ease;">
+            <svg class="w-4 h-4 shrink-0" style="fill: var(--brand-primary); opacity: 0.5;" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
             </svg>
-            <span class="text-ink font-display text-lg font-bold whitespace-nowrap">{city}</span>
+            <span class="whitespace-nowrap" style="font-family: var(--font-body); font-weight: 300; font-size: 15px; letter-spacing: -0.22px; color: var(--text-ink);">{city}</span>
           </div>
         ))}
       </div>
@@ -44,6 +48,15 @@ const cities = [
 </section>
 
 <style>
+  .city-chip {
+    opacity: 0.55;
+  }
+
+  .city-chip:hover {
+    opacity: 1;
+    box-shadow: rgba(0, 55, 112, 0.08) 0 1px 3px;
+  }
+
   .marquee-group {
     animation: marquee 35s linear infinite;
     will-change: transform;

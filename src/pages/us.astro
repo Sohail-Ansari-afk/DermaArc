@@ -1,0 +1,407 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+
+// US-specific case studies & metrics
+const usCaseMetrics = [
+  { value: "$22.40", label: "Average Cost Per Cosmetic Lead (CA & TX)" },
+  { value: "15–30+", label: "High-Margin Cash-Pay Patients / Mo" },
+  { value: "100%", label: "HIPAA-Conscious Tracking & Lead Capture" },
+  { value: "1 Practice", label: "Per Territory (ZIP Radius) Exclusivity" },
+];
+
+const usPillars = [
+  {
+    number: "01",
+    title: "Cash-Pay Procedure Landing Pages (HIPAA-Safe)",
+    subtitle: "Built to convert high-net-worth aesthetic patients.",
+    description: "Dedicated micro-funnels for your highest-ROI cash-pay treatments: Morpheus8 / RF Microneedling, Clear + Brilliant, Fraxel, BBL / HALO Laser, Acne Scar Revision, and Regenerative Aesthetics — engineered to pre-qualify patients without exposing Protected Health Information (PHI) under HHS HIPAA online tracking rules.",
+    features: [
+      "Sub-2s mobile loading speed",
+      "HIPAA-conscious lead capture & 2-way SMS triage",
+      "Treatment-specific cash-pay micro-funnels",
+      "After-hours conversion desk",
+    ],
+  },
+  {
+    number: "02",
+    title: "ZIP-Code Fenced Meta Ads (Instagram & Facebook)",
+    subtitle: "Target high-household-income neighborhoods.",
+    description: "Pin-drop Instagram and Facebook campaigns targeting affluent ZIP codes within a 5–10 mile driving radius of your practice. We optimize for booked cosmetic consultations and pre-qualified aesthetic inquiries rather than cheap, untargeted clicks.",
+    features: [
+      "Affluent ZIP-code radius targeting",
+      "FDA / FTC & medical advertising compliance",
+      "Instant reception SMS & DM lead alerts",
+      "Exclusion of non-converting discount seekers",
+    ],
+  },
+  {
+    number: "03",
+    title: "Google Local Map Pack & Medical SEO",
+    subtitle: "Outrank med spa franchises in your city.",
+    description: "Outrank competing practices and corporate chains when local patients search 'Cosmetic Dermatologist near me', 'Laser Skin Resurfacing [City]', or 'Acne Scar Specialist [City]'.",
+    features: [
+      "Google Maps 3-Pack domination",
+      "Medical GMB category optimization",
+      "Geo-tagged clinical photography",
+      "Automated 5-star Google review generation stands",
+    ],
+  },
+  {
+    number: "04",
+    title: "Doctor-Friendly Reels & Automated SMS/DM Triage",
+    subtitle: "Stop 5-minute lead decay with automated response.",
+    description: "Respond to every new patient inquiry in under 30 seconds via automated 2-way SMS, Instagram DM, or WhatsApp triage so your front desk never drops a $2,500+ procedure lead. Spend just 45 minutes a month on simple video capture.",
+    features: [
+      "12–15 monthly authority posts & Reels",
+      "< 30s automated 2-way SMS triage",
+      "45-minute monthly doctor recording scripts",
+      "Board-certified physician authority positioning",
+    ],
+  },
+];
+
+const usOnboardingSteps = [
+  {
+    step: "01",
+    day: "Day 1",
+    title: "Free ZIP Code & Territory Audit",
+    detail: "We audit your current Google Maps ranking, website conversion leaks, and competitor MedSpa ad spend in your local ZIP codes.",
+  },
+  {
+    step: "02",
+    day: "Day 2",
+    title: "Custom Funnel & Retainer Proposal",
+    detail: "You receive an exact monthly patient acquisition roadmap and transparent retainer quote matched to your practice capacity.",
+  },
+  {
+    step: "03",
+    day: "Days 3–14",
+    title: "Full 4-Pillar Launch",
+    detail: "Your cash-pay landing page, local SEO, Instagram reels, and Meta campaigns go live with instant reception SMS/DM alerts.",
+  },
+];
+
+const usIncluded = [
+  "Conversion-first cash-pay treatment landing pages",
+  "ZIP-code targeted Meta ad campaigns (Instagram + Facebook)",
+  "HIPAA-conscious lead capture & FDA/FTC compliant ad creative",
+  "Google Business Profile optimization & local Map Pack SEO",
+  "12–15 Instagram authority posts + silent UGC Reel scripts/month",
+  "Instant 2-Way SMS, Instagram DM & WhatsApp booking automation",
+  "Automated 5-star Google review generation system",
+  "Live monthly attribution report (Inquiries, CPL, Booked Consultations)",
+  "Dedicated US practice growth manager",
+];
+---
+
+<PageLayout
+  title="Digital Marketing Agency for US Dermatologists & Cosmetic Practices"
+  description="DermaArc US is the premier patient acquisition engine for US Board-Certified Dermatologists, Cosmetic Practices & MedSpas. 15–30+ high-margin cash-pay cosmetic patients every month via ZIP-code fenced Meta ads, Local SEO, and HIPAA-safe SMS/DM triage."
+>
+  <!-- Hero Section with Stripe Gradient Mesh Backdrop -->
+  <section class="stripe-mesh relative overflow-hidden" style="padding-block: clamp(80px, 9vw, 120px);">
+    <div class="container-main relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <!-- Eyebrow Pill -->
+        <div class="inline-flex items-center gap-2 mb-8">
+          <span class="badge-accent">
+            🇺🇸 Built for US Board-Certified Dermatologists, Cosmetic Practices &amp; MedSpas
+          </span>
+        </div>
+
+        <!-- Headline: display-xxl (56px, weight 300, -1.4px tracking) -->
+        <h1
+          class="font-light mb-6"
+          style="font-size: clamp(36px, 6vw, 56px); letter-spacing: -1.4px; line-height: 1.03; color: #0d253d; font-weight: 300; text-wrap: balance;"
+        >
+          Add 15–30+ high-margin cosmetic patients.<br />
+          <span class="gradient-text">Stop losing patients to franchise med spas.</span>
+        </h1>
+
+        <!-- Subtitle: body-lg (16px, weight 300) -->
+        <p
+          class="max-w-2xl mx-auto mb-10 font-light"
+          style="font-size: 16px; line-height: 1.4; color: #64748d; font-weight: 300;"
+        >
+          DermaArc installs a complete 4-Pillar Patient Acquisition Funnel for US cosmetic practices—combining fast treatment landing pages, ZIP-code fenced Meta Ads, Local Map Pack SEO, and automated 2-way SMS/DM triage.
+        </p>
+
+        <!-- CTA Row: Single indigo pill CTA + secondary outline -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none mx-auto">
+          <a href="#us-partnership" class="btn-primary w-full sm:w-auto">
+            Check Your ZIP Code Availability →
+          </a>
+          <a href="#us-pillars" class="btn-outline w-full sm:w-auto">
+            Explore the 4-Pillar Funnel
+          </a>
+        </div>
+
+        <!-- Trust Signals Row -->
+        <div class="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs sm:text-sm font-light text-ink-mute">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            1 Practice Per Territory (ZIP Code Radius)
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            HIPAA-Conscious Lead Capture &amp; SMS Triage
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            Month-to-Month · No Long-Term Lock-in
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- US Stats Bar: Stripe Cream Band (Warm Interlude) -->
+  <section class="section bg-canvas-cream border-t border-hairline">
+    <div class="container-main">
+      <div class="card-cream p-8">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 text-center">
+          {usCaseMetrics.map((stat) => (
+            <div>
+              <div class="font-display font-light text-ink text-2xl sm:text-3xl mb-1 money-fig">
+                {stat.value}
+              </div>
+              <p class="eyebrow text-ink-mute">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The 4-Pillar System for US Practices -->
+  <section id="us-pillars" class="section-lg bg-canvas border-t border-hairline">
+    <div class="container-main">
+      <div class="text-center mb-16">
+        <p class="eyebrow text-ink-mute mb-3">US Aesthetic Growth Engine</p>
+        <h2 class="font-display font-light text-ink mb-4" style="font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.96px; line-height: 1.15; text-wrap: balance;">
+          The 4-Pillar System for US Cosmetic Practices.
+        </h2>
+        <p class="text-ink-mute font-body font-light text-base max-w-2xl mx-auto leading-relaxed">
+          Designed specifically around US cash-pay aesthetic procedures, affluent ZIP-code targeting, and HIPAA tracking compliance.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {usPillars.map((pillar) => (
+          <div class="card p-8 flex flex-col justify-between">
+            <div>
+              <span class="badge-accent mb-4 inline-block">Pillar {pillar.number}</span>
+              <h3 class="font-display font-light text-ink text-xl mb-2" style="letter-spacing: -0.2px;">
+                {pillar.title}
+              </h3>
+              <p class="text-primary font-display font-light text-sm mb-3">
+                {pillar.subtitle}
+              </p>
+              <p class="text-ink-secondary font-body font-light text-sm leading-relaxed mb-6">
+                {pillar.description}
+              </p>
+            </div>
+            <ul class="space-y-2.5 pt-4 border-t border-hairline">
+              {pillar.features.map((feature) => (
+                <li class="flex items-center gap-2 text-xs font-light text-ink-secondary">
+                  <div class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></div>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- US Partnership / Dark Card Section (Option 3 Onboarding Blueprint) -->
+  <section id="us-partnership" class="section-lg bg-canvas-soft border-t border-hairline">
+    <div class="container-main">
+      <div class="text-center mb-16">
+        <p class="eyebrow text-ink-mute mb-3">Exclusive Territory Partnerships</p>
+        <h2 class="font-display font-light text-ink mb-4" style="font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.96px; line-height: 1.15; text-wrap: balance;">
+          Lock out franchise med spas in your ZIP codes.
+        </h2>
+        <p class="text-ink-mute font-body font-light text-base max-w-2xl mx-auto leading-relaxed">
+          We strictly partner with only 1 dermatology practice per defined territory so we never compete against our own client in local Meta ad auctions.
+        </p>
+      </div>
+
+      <!-- Scarcity Card: Stripe Featured Tier in #1c1e54 -->
+      <div class="max-w-2xl mx-auto">
+        <div class="card-featured p-6 sm:p-10 md:p-12 relative overflow-hidden" style="border: 1px solid rgba(255, 255, 255, 0.12);">
+          <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full pointer-events-none opacity-20" style="background: radial-gradient(circle, #533afd 0%, transparent 70%);"></div>
+
+          <!-- Top Badge & Scarcity -->
+          <div class="flex items-center justify-between gap-3 mb-8 flex-wrap">
+            <span class="badge-accent" style="background-color: rgba(185, 185, 249, 0.2); color: #b9b9f9;">
+              EXCLUSIVE TERRITORY PARTNER
+            </span>
+            <span class="font-body text-xs font-light text-slate-300">
+              Month-to-month · No long-term lock-in
+            </span>
+          </div>
+
+          <!-- Hero Scarcity Headline -->
+          <div class="mb-8">
+            <div class="flex items-baseline gap-3 flex-wrap">
+              <span
+                class="font-display font-light text-white"
+                style="font-size: clamp(34px, 5vw, 52px); letter-spacing: -1.2px; line-height: 1.05;"
+              >
+                1 Practice Per Territory
+              </span>
+            </div>
+            <p class="text-slate-300 font-body text-xs sm:text-sm mt-3 font-light leading-relaxed">
+              Custom monthly retainer tailored to your practice size &amp; target radius · Recommended starting ad spend: $25–$40/day paid directly to Meta
+            </p>
+          </div>
+
+          <!-- Hairline Divider -->
+          <div class="border-t border-white/10 mb-8"></div>
+
+          <!-- Checklist -->
+          <h4 class="font-display text-xs uppercase tracking-wider text-white font-medium mb-5">
+            EVERYTHING INCLUDED IN YOUR US PRACTICE ENGINE:
+          </h4>
+          <ul class="space-y-3.5 mb-10">
+            {usIncluded.map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5" style="background-color: rgba(83, 58, 253, 0.35);">
+                  <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <span class="text-slate-100 font-body text-sm font-light leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Hairline Divider -->
+          <div class="border-t border-white/10 mb-8"></div>
+
+          <!-- 3-Step What Happens Next Onboarding Preview (Option 3) -->
+          <h4 class="font-display text-xs uppercase tracking-wider text-slate-300 font-medium mb-5">
+            WHAT HAPPENS NEXT (3-STEP ONBOARDING):
+          </h4>
+          <div class="space-y-4 mb-10">
+            {usOnboardingSteps.map((s) => (
+              <div class="p-4 rounded-lg bg-white/[0.04] border border-white/10 flex items-start gap-3.5">
+                <div class="w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-white font-display text-xs font-medium" style="background-color: #533afd;">
+                  {s.step}
+                </div>
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-white font-display text-sm font-light">{s.title}</span>
+                    <span class="eyebrow text-[9px] text-slate-400">({s.day})</span>
+                  </div>
+                  <p class="text-slate-300 font-body text-xs font-light leading-relaxed">
+                    {s.detail}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Single Dominant Pill CTA -->
+          <a href="#inquiry-form" class="btn-primary w-full text-center">
+            Check Your ZIP Code &amp; Get Custom Pricing →
+          </a>
+
+          <p class="text-slate-400 font-body text-xs text-center mt-4 font-light">
+            Takes 60 seconds · Free local competitor &amp; Map Pack audit included
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Form Section -->
+  <section id="inquiry-form" class="stripe-mesh section-lg bg-canvas relative overflow-hidden border-t border-hairline">
+    <div class="container-main relative z-10">
+      <div class="max-w-2xl mx-auto text-center mb-12">
+        <span class="badge-accent mb-3 inline-block">US Practice Audit</span>
+        <h2 class="font-display font-light text-ink mb-4" style="font-size: clamp(32px, 4.5vw, 48px); letter-spacing: -1.2px; line-height: 1.08;">
+          Request your ZIP code availability audit.
+        </h2>
+        <p class="font-body font-light text-ink-mute text-base leading-relaxed">
+          Sohail will audit your local ZIP code catchment, competitor med spa ad spend, and procedure landing page leaks within 24 hours.
+        </p>
+      </div>
+
+      <div class="card p-6 sm:p-10 max-w-2xl mx-auto" style="box-shadow: rgba(0,55,112,0.08) 0 8px 24px, rgba(0,55,112,0.04) 0 2px 6px;">
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="space-y-5"
+        >
+          <input type="hidden" name="access_key" value="5335ef61-bcd9-4e43-ae81-932d76b7f9e1" />
+          <input type="hidden" name="subject" value="New US Practice Inquiry — DermaArc US" />
+          <input type="hidden" name="from_name" value="DermaArc US Inquiries" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block eyebrow text-ink mb-2">Doctor / Practice Owner Name *</label>
+              <input type="text" name="name" required placeholder="e.g., Dr. Jessica Miller" class="input-stripe" />
+            </div>
+            <div>
+              <label class="block eyebrow text-ink mb-2">Practice / MedSpa Name *</label>
+              <input type="text" name="clinic_name" required placeholder="e.g., Beverly Hills Skin &amp; Laser" class="input-stripe" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block eyebrow text-ink mb-2">Cell / Phone Number (for SMS Triage) *</label>
+              <input type="tel" name="phone" required placeholder="+1 (555) 123-4567" class="input-stripe" />
+            </div>
+            <div>
+              <label class="block eyebrow text-ink mb-2">Email Address *</label>
+              <input type="email" name="email" required placeholder="dr.miller@practice.com" class="input-stripe" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block eyebrow text-ink mb-2">City, State &amp; Target ZIP Code(s) *</label>
+              <input type="text" name="zipcode" required placeholder="e.g., Los Angeles, CA 90210" class="input-stripe" />
+            </div>
+            <div>
+              <label class="block eyebrow text-ink mb-2">Primary Practice Focus *</label>
+              <select name="clinic_type" required class="input-stripe" style="padding-block: 6px;">
+                <option value="Cosmetic Dermatology & Laser Center">Cosmetic Dermatology &amp; Laser Center</option>
+                <option value="Physician-Supervised Medical Spa">Physician-Supervised Medical Spa</option>
+                <option value="Hair Restoration & PRP/GFC Practice">Hair Restoration &amp; PRP/GFC Practice</option>
+                <option value="Comprehensive Clinical & Cash-Pay Dermatology">Comprehensive Clinical &amp; Cash-Pay Dermatology</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block eyebrow text-ink mb-2">Current Biggest Challenge or Target Growth Goal</label>
+            <textarea
+              name="message"
+              rows="3"
+              placeholder="e.g., We want to increase cash-pay consults for Morpheus8, BBL Laser, and Acne Scar Revision. Med spas down the street are out-advertising us."
+              class="w-full p-3 rounded-[6px] bg-canvas border border-hairline-input text-ink placeholder:text-ink-mute/70 text-[15px] font-light focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full">
+            Submit ZIP Code Audit Request →
+          </button>
+          <p class="text-ink-mute font-body text-[11px] text-center mt-3 font-light">
+            🔒 100% Confidential · We strictly respect HIPAA privacy guidelines
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</PageLayout>

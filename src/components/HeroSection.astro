@@ -1,57 +1,62 @@
 ---
-// Hero Section — DermaArc dermatology-specific hero with WhatsApp CTA and Interactive 3D Engine
+// Hero Section — DermaArc dermatology-specific hero with Stripe design system
 import HeroInteractiveEngine from "./HeroInteractiveEngine.astro";
 ---
 
-<section id="hero" class="section-lg relative overflow-hidden">
-  <div class="container-main">
+<section id="hero" class="stripe-mesh relative overflow-hidden" style="padding-block: clamp(80px, 9vw, 120px);">
+  <div class="container-main relative z-10">
     <div class="max-w-4xl mx-auto text-center">
-      <!-- Eyebrow -->
+      <!-- Eyebrow pill -->
       <div class="inline-flex items-center gap-2 mb-8">
-        <span class="badge-accent">Now Accepting Clinics · Pune & Pan-India</span>
+        <span class="badge-accent">Now Accepting Clinics · Pune &amp; Pan-India</span>
       </div>
 
-      <!-- Headline -->
-      <h1 class="font-display font-bold text-ink mb-6" style="font-size: clamp(36px, 6vw, 80px); line-height: 1.0;">
-        15–30+ patients.<br />
-        <span class="gradient-text">Every month.</span>
+      <!-- Headline: display-xxl (56px, weight 300, -1.4px tracking, text-wrap balance) -->
+      <h1
+        class="font-light mb-6"
+        style="font-size: clamp(36px, 6vw, 56px); letter-spacing: -1.4px; line-height: 1.03; color: #0d253d; font-weight: 300; text-wrap: balance;"
+      >
+        Predictable patient growth.<br />
+        <span class="gradient-text">Exclusively for dermatologists.</span>
       </h1>
 
-      <!-- Subtitle -->
-      <p class="font-body font-light text-text-muted max-w-2xl mx-auto mb-10" style="font-size: clamp(16px, 2vw, 20px); line-height: 1.38;">
-        DermaArc is the growth engine built exclusively for dermatologists — one unified system that fills your appointment slots
-        through WhatsApp bookings and walk-ins. No freelancer chaos. No vanity metrics.
+      <!-- Subtitle: body-lg (16px, weight 300) -->
+      <p
+        class="max-w-2xl mx-auto mb-10 font-light"
+        style="font-size: 16px; line-height: 1.4; color: #64748d; font-weight: 300;"
+      >
+        We only do <span style="color: #0d253d; font-weight: 400;">digital marketing for dermatologists</span>. DermaArc is the premier digital marketing agency built exclusively for skin clinics and aesthetic practices — filling your appointment calendar with qualified, high-margin patient bookings every month. No freelancer chaos. No vanity metrics.
       </p>
 
-      <!-- CTA Row -->
+      <!-- CTA Row: Single indigo pill CTA + secondary outline -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none mx-auto">
-        <a href="#inquiry-form" class="btn-primary w-full sm:w-auto h-14 px-8 text-base shadow-sm">
+        <a href="#inquiry-form" class="btn-primary w-full sm:w-auto">
           Request Clinic Growth Audit
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </a>
-        <a href="#four-pillars" class="btn-outline w-full sm:w-auto h-14 px-8 text-base">
+        <a href="#four-pillars" class="btn-outline w-full sm:w-auto">
           See How It Works
         </a>
       </div>
 
       <!-- Trust Signals -->
-      <div class="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-text-faint text-xs sm:text-sm font-body">
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs sm:text-sm font-light" style="color: #64748d;">
         <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-accent-teal" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: #533afd;">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
           </svg>
-          ₹30,000/mo · All-inclusive
+          1 Clinic Per Area Exclusivity
         </div>
         <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-accent-teal" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: #533afd;">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
           </svg>
           Results in 30 days
         </div>
         <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-accent-teal" fill="currentColor" viewBox="0 0 20 20">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="color: #533afd;">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
           </svg>
           Zero vanity metrics
@@ -64,7 +69,4 @@ import HeroInteractiveEngine from "./HeroInteractiveEngine.astro";
       <HeroInteractiveEngine />
     </div>
   </div>
-
-  <!-- Background subtle gradient orb -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-[0.04] pointer-events-none" style="background: radial-gradient(circle, #00c7c7, transparent 70%);"></div>
 </section>

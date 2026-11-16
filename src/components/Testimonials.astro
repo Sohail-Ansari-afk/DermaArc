@@ -1,5 +1,8 @@
 ---
-// Testimonials — dermatologist quotes
+// Testimonials — Dermatologist Case Stories
+// Follows Stripe DESIGN.md: cards live on near-white surfaces (card-feature-light),
+// 12px radius, 32px padding, Level 1 shadow, Sohne/Inter weight 300 typography.
+
 const testimonials = [
   {
     quote: "Before DermaArc, I was paying three different freelancers and getting zero accountability. Now everything is under one roof — my WhatsApp inquiries have tripled and I know exactly what every rupee is doing.",
@@ -28,33 +31,42 @@ const testimonials = [
 ];
 ---
 
-<section id="testimonials" class="section-lg bg-canvas-soft">
+<section id="testimonials" class="section-lg bg-canvas-soft border-t border-hairline">
   <div class="container-main">
     <!-- Section Header -->
-    <div class="text-center mb-12">
-      <p class="text-text-muted font-body text-sm font-semibold uppercase tracking-wide mb-4">Doctor stories</p>
-      <h2 class="font-display font-bold text-ink">
+    <div class="text-center mb-16">
+      <p class="eyebrow text-ink-mute mb-3">Doctor stories</p>
+      <h2 class="font-display font-light text-ink mb-4" style="font-size: clamp(28px, 4vw, 48px); letter-spacing: -0.96px; line-height: 1.15; text-wrap: balance;">
         What dermatologists say.
       </h2>
+      <p class="text-ink-mute font-body font-light text-base max-w-xl mx-auto leading-relaxed">
+        Real outcomes from skin clinics, laser centers, and aesthetic practices across India.
+      </p>
     </div>
 
-    <!-- Testimonial Cards: Masonry-like layout -->
-    <div class="columns-1 md:columns-2 lg:columns-2 gap-6 max-w-4xl mx-auto">
+    <!-- Testimonial Cards: 2-Column Grid on Desktop -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
       {testimonials.map((testimonial) => (
-        <div class="card mb-6 break-inside-avoid">
+        <div class="card flex flex-col justify-between">
           <!-- Quote -->
-          <p class="text-ink font-body text-base leading-relaxed mb-6">
+          <p class="text-ink-secondary font-body font-light text-base leading-relaxed mb-8">
             "{testimonial.quote}"
           </p>
 
-          <!-- Author -->
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-canvas-soft flex items-center justify-center shrink-0">
-              <span class="text-ink text-sm font-bold font-display">{testimonial.name.split(' ').pop()?.charAt(0)}</span>
+          <!-- Author Info -->
+          <div class="flex items-center gap-3.5 pt-4 border-t border-hairline">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style="background-color: #f6f9fc; border: 1px solid #e3e8ee;">
+              <span class="text-primary font-display font-medium text-sm">
+                {testimonial.name.split(' ').pop()?.charAt(0)}
+              </span>
             </div>
             <div>
-              <p class="text-ink font-body text-sm font-semibold">{testimonial.name}</p>
-              <p class="text-text-muted font-body text-xs">{testimonial.role}, {testimonial.company}</p>
+              <p class="text-ink font-display font-light text-base" style="letter-spacing: 0;">
+                {testimonial.name}
+              </p>
+              <p class="text-ink-mute font-body text-xs font-light">
+                {testimonial.role} · <span class="text-ink-secondary">{testimonial.company}</span>
+              </p>
             </div>
           </div>
         </div>

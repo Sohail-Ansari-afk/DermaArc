@@ -10,54 +10,74 @@ const navLinks = [
 ];
 ---
 
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4 px-4">
-  <nav
-    id="nav-pill"
-    class="flex items-center justify-between w-full max-w-[1120px] h-14 px-5 bg-canvas-soft/80 backdrop-blur-lg rounded-full border border-hairline-soft transition-all duration-300 shadow-sm"
-  >
-    <!-- Logo -->
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="flex items-center justify-between w-full max-w-[1200px] mx-auto px-6 py-4">
+    <!-- Logo (left) -->
     <a href="/" id="nav-logo" class="flex items-center gap-2.5 shrink-0">
       <img src="/favicon.svg" alt="DermaArc Logo" class="w-8 h-8 rounded-full object-contain" />
-      <span class="font-display text-lg font-bold text-ink tracking-tight">DermaArc</span>
+      <span
+        class="font-display text-lg tracking-tight"
+        style="font-weight: 300; color: #0d253d;"
+      >DermaArc</span>
     </a>
 
-    <!-- Desktop Links -->
-    <div id="nav-links-desktop" class="hidden lg:flex items-center gap-1">
+    <!-- Desktop Links (center) -->
+    <nav id="nav-links-desktop" class="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2" aria-label="Primary navigation">
       {navLinks.map((link) => (
         <a
           href={link.href}
           class:list={[
-            "px-4 py-2 rounded-full text-sm font-semibold font-body transition-colors duration-200",
+            "px-4 py-2 text-[15px] font-body rounded-pill transition-colors duration-200",
             currentPath === link.href || currentPath.startsWith(link.href + "/")
-              ? "text-ink bg-canvas shadow-xs"
-              : "text-text-muted hover:text-ink hover:bg-canvas/60",
+              ? "nav-link-active"
+              : "nav-link",
           ]}
         >
           {link.label}
         </a>
       ))}
-    </div>
+    </nav>
 
-    <!-- Desktop CTA & Theme Toggle -->
+    <!-- Desktop CTA (right): Region Switcher + Sign In + Filled Indigo Pill -->
     <div class="hidden lg:flex items-center gap-3">
-      <!-- Dark/Light Mode Toggle -->
-      <button
-        id="theme-toggle-desktop"
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-canvas border border-hairline-soft hover:bg-canvas-soft text-ink transition-all duration-200 cursor-pointer"
-        aria-label="Toggle theme"
-        title="Toggle dark/light mode"
-      >
-        <!-- Sun Icon (Dark Mode active) -->
-        <svg class="w-4 h-4 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-        <!-- Moon Icon (Light Mode active) -->
-        <svg class="w-4 h-4 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-      </button>
+      <!-- Region Selector Dropdown -->
+      <div class="relative group">
+        <button
+          type="button"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-hairline text-xs font-body text-ink-secondary hover:text-primary transition-colors cursor-pointer"
+          aria-label="Select Region"
+        >
+          <span>🌐</span>
+          <span class="font-normal">{currentPath.startsWith('/uk') ? 'UK 🇬🇧' : currentPath.startsWith('/us') ? 'US 🇺🇸' : 'IN 🇮🇳'}</span>
+          <svg class="w-3 h-3 text-ink-mute" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="absolute right-0 top-full pt-1 hidden group-hover:block z-50">
+          <div class="bg-canvas border border-hairline rounded-lg shadow-lg py-1.5 px-1 min-w-[150px]">
+            <a href="/" class="flex items-center gap-2 px-3 py-2 rounded text-xs text-ink hover:bg-canvas-soft transition-colors">
+              <span>🇮🇳</span> <span class="font-light">India (Global)</span>
+            </a>
+            <a href="/uk" class="flex items-center gap-2 px-3 py-2 rounded text-xs text-ink hover:bg-canvas-soft transition-colors">
+              <span>🇬🇧</span> <span class="font-light">UK Clinics</span>
+            </a>
+            <a href="/us" class="flex items-center gap-2 px-3 py-2 rounded text-xs text-ink hover:bg-canvas-soft transition-colors">
+              <span>🇺🇸</span> <span class="font-light">US Practices</span>
+            </a>
+          </div>
+        </div>
+      </div>
 
-      <a href="/#inquiry-form" class="btn-primary text-sm h-10 px-5">
+      <a
+        href="/login"
+        class="nav-link text-[15px] px-3 py-2 transition-colors duration-200"
+      >
+        Sign in
+      </a>
+      <a href="/#inquiry-form" class="btn-primary text-sm flex items-center gap-2">
         Get Clinic Audit
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -65,25 +85,12 @@ const navLinks = [
       </a>
     </div>
 
-    <!-- Mobile Controls (Toggle + Menu Button) -->
-    <div class="lg:hidden flex items-center gap-2">
-      <button
-        id="theme-toggle-mobile"
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-canvas border border-hairline-soft hover:bg-canvas-soft text-ink transition-colors cursor-pointer"
-        aria-label="Toggle theme"
-        title="Toggle dark/light mode"
-      >
-        <svg class="w-4 h-4 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
-        <svg class="w-4 h-4 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-      </button>
-
+    <!-- Mobile Menu Button -->
+    <div class="lg:hidden flex items-center">
       <button
         id="mobile-menu-btn"
-        class="flex items-center justify-center w-10 h-10 rounded-full bg-canvas border border-hairline-soft hover:bg-canvas-soft text-ink transition-colors cursor-pointer"
+        class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors cursor-pointer"
+        style="color: #0d253d;"
         aria-label="Toggle menu"
         aria-expanded="false"
       >
@@ -95,62 +102,120 @@ const navLinks = [
         </svg>
       </button>
     </div>
-  </nav>
+  </div>
 
   <!-- Mobile Menu Dropdown -->
   <div
     id="mobile-menu"
-    class="hidden fixed inset-x-4 top-20 max-h-[80vh] overflow-y-auto bg-canvas/95 backdrop-blur-xl rounded-[24px] border border-hairline p-6 shadow-2xl lg:hidden z-50 transition-all duration-200"
+    class="hidden lg:hidden w-full overflow-y-auto"
+    style="background-color: #ffffff; border-top: 1px solid #e3e8ee; max-height: 80vh;"
   >
-    <div class="flex flex-col gap-1">
+    <div class="max-w-[1200px] mx-auto px-6 py-4 flex flex-col gap-1">
       {navLinks.map((link) => (
         <a
           href={link.href}
           class:list={[
-            "px-4 py-3 rounded-[16px] text-base font-semibold font-body transition-colors duration-200 min-h-[48px] flex items-center",
+            "px-4 py-3 text-base font-body transition-colors duration-200 min-h-[48px] flex items-center rounded-lg",
             currentPath === link.href
-              ? "text-ink bg-canvas-soft"
-              : "text-text-muted hover:text-ink hover:bg-canvas-soft",
+              ? "mobile-link-active"
+              : "mobile-link",
           ]}
         >
           {link.label}
         </a>
       ))}
-    </div>
-    <div class="mt-4 pt-4 border-t border-hairline-soft">
-      <a href="/#inquiry-form" class="btn-primary w-full text-center min-h-[48px] flex items-center justify-center">
-        Request Growth Plan
-      </a>
+      <div class="mt-3 pt-3" style="border-top: 1px solid #e3e8ee;">
+        <a
+          href="/login"
+          class="mobile-link px-4 py-3 text-base font-body transition-colors duration-200 min-h-[48px] flex items-center rounded-lg"
+        >
+          Sign in
+        </a>
+      </div>
+      <!-- Region Selector (Mobile) -->
+      <div class="mt-2 pt-3 border-t border-hairline">
+        <p class="eyebrow text-ink-mute mb-2 px-2">Select Region</p>
+        <div class="grid grid-cols-3 gap-2">
+          <a
+            href="/"
+            class:list={[
+              "text-center py-2 px-2 rounded-lg text-xs font-body border transition-colors",
+              currentPath === "/" ? "bg-canvas-soft border-primary text-primary" : "border-hairline text-ink-secondary"
+            ]}
+          >
+            🇮🇳 India
+          </a>
+          <a
+            href="/uk"
+            class:list={[
+              "text-center py-2 px-2 rounded-lg text-xs font-body border transition-colors",
+              currentPath.startsWith("/uk") ? "bg-canvas-soft border-primary text-primary" : "border-hairline text-ink-secondary"
+            ]}
+          >
+            🇬🇧 UK
+          </a>
+          <a
+            href="/us"
+            class:list={[
+              "text-center py-2 px-2 rounded-lg text-xs font-body border transition-colors",
+              currentPath.startsWith("/us") ? "bg-canvas-soft border-primary text-primary" : "border-hairline text-ink-secondary"
+            ]}
+          >
+            🇺🇸 US
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-2">
+        <a href="/#inquiry-form" class="btn-primary w-full text-center min-h-[48px] flex items-center justify-center">
+          Request Growth Plan
+        </a>
+      </div>
     </div>
   </div>
 </header>
 
+<style>
+  /* Nav-bar-on-mesh: transparent by default, floats over gradient mesh hero */
+  #site-header {
+    background-color: transparent;
+  }
+
+  /* When scrolled, solidify to white canvas with Level 1 shadow */
+  #site-header.scrolled {
+    background-color: #ffffff;
+    box-shadow: rgba(0, 55, 112, 0.08) 0 1px 3px;
+    border-bottom: 1px solid #e3e8ee;
+  }
+
+  .nav-link {
+    font-weight: 300;
+    color: #64748d;
+  }
+  .nav-link:hover {
+    color: #0d253d;
+  }
+  .nav-link-active {
+    font-weight: 300;
+    color: #0d253d;
+  }
+  .mobile-link {
+    font-weight: 300;
+    color: #64748d;
+  }
+  .mobile-link:hover {
+    color: #0d253d;
+    background-color: #f6f9fc;
+  }
+  .mobile-link-active {
+    font-weight: 300;
+    color: #0d253d;
+    background-color: #f6f9fc;
+  }
+</style>
+
 <script>
-  function setupThemeAndNav() {
-    const themeBtnDesktop = document.getElementById("theme-toggle-desktop");
-    const themeBtnMobile = document.getElementById("theme-toggle-mobile");
-    const sunIcons = document.querySelectorAll(".sun-icon");
-    const moonIcons = document.querySelectorAll(".moon-icon");
-
-    function updateIcons(isDark: boolean) {
-      sunIcons.forEach((el) => el.classList.toggle("hidden", !isDark));
-      moonIcons.forEach((el) => el.classList.toggle("hidden", isDark));
-    }
-
-    // Check current theme on page
-    const isDark = document.documentElement.classList.contains("dark");
-    updateIcons(isDark);
-
-    function toggleTheme() {
-      const willBeDark = !document.documentElement.classList.contains("dark");
-      document.documentElement.classList.toggle("dark", willBeDark);
-      localStorage.setItem("theme", willBeDark ? "dark" : "light");
-      updateIcons(willBeDark);
-    }
-
-    themeBtnDesktop?.addEventListener("click", toggleTheme);
-    themeBtnMobile?.addEventListener("click", toggleTheme);
-
+  function setupNav() {
     // Mobile Menu
     const menuBtn = document.getElementById("mobile-menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
@@ -189,17 +254,19 @@ const navLinks = [
       });
     });
 
-    // Scroll effect
-    const navPill = document.getElementById("nav-pill");
-    window.addEventListener("scroll", () => {
+    // Scroll: transparent → solid white with shadow
+    const header = document.getElementById("site-header");
+    function handleScroll() {
       if (window.scrollY > 40) {
-        navPill?.classList.add("shadow-md");
+        header?.classList.add("scrolled");
       } else {
-        navPill?.classList.remove("shadow-md");
+        header?.classList.remove("scrolled");
       }
-    });
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
   }
 
-  setupThemeAndNav();
-  document.addEventListener("astro:page-load", setupThemeAndNav);
+  setupNav();
+  document.addEventListener("astro:page-load", setupNav);
 </script>

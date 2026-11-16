@@ -1,50 +1,76 @@
 @import "tailwindcss";
 
 /* ============================================================
-   DermaArc Design System — Tailwind v4 Theme Tokens
-   Based on Mobbin-inspired design system with Dark Mode support
+   DermaArc Design System — Stripe DESIGN.md Token System
+   Based on opendesignmd.com/stripe — Sohne/Inter, Indigo CTA,
+   gradient mesh hero, navy ink, cream-band feature cards.
    ============================================================ */
 
 @theme {
   /* ── Fonts ── */
-  --font-display: "Bricolage Grotesque", -apple-system, "Helvetica Neue", Arial, sans-serif;
-  --font-body: "DM Sans", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
 
-  /* ── Dynamic Colors Mapped to Theme Variables ── */
-  --color-primary: var(--brand-primary);
-  --color-on-primary: var(--brand-on-primary);
-  --color-canvas: var(--bg-canvas);
-  --color-canvas-soft: var(--bg-canvas-soft);
-  --color-field: var(--bg-field);
-  --color-hairline-soft: var(--border-hairline-soft);
-  --color-hairline: var(--border-hairline);
-  --color-ink: var(--text-ink);
-  --color-ink-soft: var(--text-ink-soft);
-  --color-text-muted: var(--text-muted);
-  --color-text-faint: var(--text-faint);
+  /* ── Stripe Brand Colors ── */
+  --color-primary: #533afd;
+  --color-primary-deep: #4434d4;
+  --color-primary-press: #2e2b8c;
+  --color-primary-soft: #665efd;
+  --color-primary-subdued: #b9b9f9;
+  --color-brand-dark: #1c1e54;
 
-  /* Signature Gradient Stops */
+  /* ── Surface Colors ── */
+  --color-canvas: #ffffff;
+  --color-canvas-soft: #f6f9fc;
+  --color-canvas-cream: #f5e9d4;
+  --color-hairline: #e3e8ee;
+  --color-hairline-input: #a8c3de;
+
+  /* ── Text Colors ── */
+  --color-ink: #0d253d;
+  --color-ink-secondary: #273951;
+  --color-ink-mute: #64748d;
+  --color-ink-mute-2: #61718a;
+  --color-on-primary: #ffffff;
+
+  /* ── Gradient Accent Stops (kept for HeroInteractiveEngine) ── */
   --color-accent-teal: #00c7c7;
   --color-accent-aqua: #55d8c8;
   --color-accent-gold: #ffc15a;
   --color-accent-orange: #ff8a3d;
   --color-accent-coral: #f45135;
 
-  /* ── Border Radius ── */
-  --radius-none: 0px;
-  --radius-sm: 16px;
-  --radius-md: 24px;
-  --radius-full: 9999px;
+  /* ── Stripe Gradient Stops ── */
+  --color-stripe-ruby: #ea2261;
+  --color-stripe-magenta: #f96bee;
+  --color-stripe-lemon: #9b6829;
+
+  /* ── Border Radius — Stripe Scale ── */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+
+  /* ── Spacing ── */
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-huge: 64px;
 
   /* ── Breakpoints ── */
-  --breakpoint-xs: 600px;
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
+  --breakpoint-2xl: 1440px;
 
-  /* ── Standard Max Width Scale ── */
+  /* ── Max Widths ── */
   --max-width-xs: 20rem;
   --max-width-sm: 24rem;
   --max-width-md: 28rem;
@@ -58,49 +84,30 @@
   --max-width-7xl: 80rem;
 }
 
-/* ── Light Mode Root Variables ── */
+/* ── Root Variables ── */
 :root {
-  --brand-primary: #050505;
-  --brand-on-primary: #ffffff;
+  /* Stripe brand tokens */
+  --brand-primary: #533afd;
+  --brand-dark: #1c1e54;
   --bg-canvas: #ffffff;
-  --bg-canvas-soft: #f4f4f6;
-  --bg-field: #f0f0f2;
-  --border-hairline-soft: #e5e5e8;
-  --border-hairline: #d4d4d8;
-  --text-ink: #09090b;
-  --text-ink-soft: #27272a;
-  --text-muted: #52525b;
-  --text-faint: #8e8e93;
+  --bg-canvas-soft: #f6f9fc;
+  --bg-canvas-cream: #f5e9d4;
+  --border-hairline: #e3e8ee;
+  --border-hairline-input: #a8c3de;
+  --text-ink: #0d253d;
+  --text-ink-secondary: #273951;
+  --text-ink-mute: #64748d;
+  --text-on-primary: #ffffff;
 
-  --gradient-accent: linear-gradient(
-    90deg,
-    #00c7c7 0%,
-    #55d8c8 25%,
-    #ffc15a 50%,
-    #ff8a3d 75%,
-    #f45135 100%
-  );
-  --container-max: 1280px;
+  /* Stripe shadow tokens */
+  --shadow-card: rgba(0, 55, 112, 0.08) 0 1px 3px;
+  --shadow-float: rgba(0, 55, 112, 0.08) 0 8px 24px, rgba(0, 55, 112, 0.04) 0 2px 6px;
+
+  --container-max: 1200px;
   --container-narrow: 960px;
   --container-text: 720px;
-  --space-section: clamp(48px, 6vw, 80px);
-  --space-section-lg: clamp(64px, 8vw, 120px);
-}
-
-/* ── Dark Mode Root Variables ── */
-html.dark {
-  --brand-primary: #fafafa;
-  --brand-on-primary: #09090b;
-  --bg-canvas: #09090b;
-  --bg-canvas-soft: #141418;
-  --bg-field: #18181c;
-  --border-hairline-soft: #23232a;
-  --border-hairline: #2e2e38;
-  --text-ink: #fafafa;
-  --text-ink-soft: #e4e4e7;
-  --text-muted: #a1a1aa;
-  --text-faint: #71717a;
-  color-scheme: dark;
+  --space-section: clamp(64px, 7vw, 96px);
+  --space-section-lg: clamp(80px, 9vw, 120px);
 }
 
 /* ── Base Resets & Typography ── */
@@ -116,6 +123,8 @@ html.dark {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* Stripe: ss01 stylistic set globally */
+    font-feature-settings: "ss01";
   }
 
   body {
@@ -124,28 +133,74 @@ html.dark {
     width: 100%;
     min-width: 320px;
     font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--color-ink);
-    background-color: var(--color-canvas);
-    transition: background-color 0.25s ease, color 0.25s ease;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--text-ink);
+    background-color: var(--bg-canvas);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* Stripe typographic scale — thin weight, negative tracking on display */
+  h1 {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 300;
+    font-size: clamp(36px, 6vw, 56px);
+    line-height: 1.03;
+    letter-spacing: -1.4px;
     margin: 0;
     text-wrap: balance;
   }
 
-  h1 { font-size: clamp(32px, 6vw, 56px); line-height: 1.05; }
-  h2 { font-size: clamp(26px, 4.5vw, 44px); line-height: 1.15; }
-  h3 { font-size: clamp(20px, 3.5vw, 32px); line-height: 1.2; }
-  h4 { font-size: clamp(18px, 2.5vw, 24px); line-height: 1.25; }
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.96px;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.1;
+    letter-spacing: -0.64px;
+    margin: 0;
+  }
+
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(18px, 2vw, 26px);
+    line-height: 1.12;
+    letter-spacing: -0.26px;
+    margin: 0;
+  }
+
+  h5 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: -0.22px;
+    margin: 0;
+  }
+
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+    margin: 0;
+  }
 
   p {
     margin: 0;
+    font-weight: 300;
+    line-height: 1.4;
   }
 
   a {
@@ -158,150 +213,193 @@ html.dark {
     display: block;
   }
 
-  /* ── Responsive Typography ── */
+  /* Stripe: tabular figures for numeric content */
+  .tnum, [data-tnum] {
+    font-feature-settings: "tnum";
+    letter-spacing: -0.42px;
+  }
+
   @media (max-width: 768px) {
-    h1 { font-size: 36px; line-height: 1.1; }
-    h2 { font-size: 30px; line-height: 1.15; }
-    h3 { font-size: 24px; line-height: 1.2; }
-    h4 { font-size: 20px; line-height: 1.25; }
+    h1 { font-size: 36px; letter-spacing: -0.9px; }
+    h2 { font-size: 28px; letter-spacing: -0.56px; }
+    h3 { font-size: 24px; letter-spacing: -0.48px; }
   }
 
   @media (max-width: 640px) {
-    h1 { font-size: 28px; }
-    h2 { font-size: 24px; }
+    h1 { font-size: 32px; letter-spacing: -0.64px; }
+    h2 { font-size: 26px; letter-spacing: -0.26px; }
   }
 }
 
 /* ── Component Classes ── */
 @layer components {
-  /* Button: Primary (Solid Dark in Light mode, Solid Light in Dark mode) */
+
+  /* ─── STRIPE PRIMARY PILL BUTTON ─── */
   .btn-primary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    height: 48px;
-    padding: 0 24px;
-    background-color: var(--color-primary);
-    color: var(--color-on-primary);
+    gap: 6px;
+    height: 40px;
+    padding: 8px 16px;
+    background-color: #533afd;
+    color: #ffffff;
     font-family: var(--font-body);
     font-size: 16px;
-    font-weight: 600;
-    line-height: 1.38;
-    border: 1.5px solid var(--color-primary);
+    font-weight: 400;
+    line-height: 1.0;
+    border: none;
     border-radius: 9999px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease, transform 0.15s ease;
     white-space: nowrap;
     text-decoration: none;
   }
   .btn-primary:hover {
-    background-color: var(--color-ink-soft);
-    border-color: var(--color-ink-soft);
-    color: var(--color-on-primary);
+    background-color: #665efd;
     transform: translateY(-1px);
   }
+  .btn-primary:active {
+    background-color: #2e2b8c;
+    transform: translateY(0);
+  }
 
-  /* Button: Outline (On Light Canvas or adapts to dark) */
+  /* ─── STRIPE SECONDARY BUTTON (outline style) ─── */
   .btn-outline {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    height: 48px;
-    padding: 0 24px;
-    background-color: transparent;
-    color: var(--color-ink);
+    gap: 6px;
+    height: 40px;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #533afd;
     font-family: var(--font-body);
     font-size: 16px;
-    font-weight: 600;
-    line-height: 1.38;
-    border: 1.5px solid var(--color-ink);
+    font-weight: 400;
+    line-height: 1.0;
+    border: 1px solid #533afd;
     border-radius: 9999px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease, transform 0.15s ease;
     white-space: nowrap;
     text-decoration: none;
   }
   .btn-outline:hover {
-    background-color: var(--color-canvas-soft);
-    color: var(--color-ink);
+    background-color: #f6f9fc;
     transform: translateY(-1px);
   }
 
-  /* Button: Outline White (On Dark Containers, e.g. Footer & Pipeline) */
+  /* ─── STRIPE DARK BUTTON (on dark nav/footer) ─── */
   .btn-outline-white {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    height: 48px;
-    padding: 0 24px;
-    background-color: transparent;
-    color: #ffffff !important;
+    gap: 6px;
+    height: 40px;
+    padding: 8px 16px;
+    background-color: #1c1e54;
+    color: #ffffff;
     font-family: var(--font-body);
     font-size: 16px;
-    font-weight: 600;
-    line-height: 1.38;
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+    line-height: 1.0;
+    border: none;
     border-radius: 9999px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease, transform 0.15s ease;
     white-space: nowrap;
     text-decoration: none;
   }
   .btn-outline-white:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    border-color: #ffffff;
-    color: #ffffff !important;
+    background-color: #2e2b8c;
     transform: translateY(-1px);
   }
 
-  /* Button: Soft Pill */
+  /* ─── STRIPE SOFT PILL TAG ─── */
   .btn-soft {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    height: 40px;
-    padding: 0 20px;
-    background-color: var(--color-canvas-soft);
-    color: var(--color-ink);
+    gap: 6px;
+    height: 32px;
+    padding: 4px 12px;
+    background-color: #b9b9f9;
+    color: #4434d4;
     font-family: var(--font-body);
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.38;
-    border: 1px solid var(--color-hairline);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0.1px;
     border-radius: 9999px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background-color 0.15s ease;
     white-space: nowrap;
     text-decoration: none;
+    text-transform: uppercase;
   }
   .btn-soft:hover {
-    background-color: var(--color-hairline);
-    color: var(--color-ink);
+    background-color: #a0a0f0;
   }
 
-  /* Card */
+  /* ─── STRIPE FEATURE CARD (white on canvas) ─── */
   .card {
-    background-color: var(--color-canvas);
-    border: 1px solid var(--color-hairline-soft);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    transition: background-color 0.25s ease, border-color 0.25s ease;
+    background-color: #ffffff;
+    border: 1px solid #e3e8ee;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: rgba(0, 55, 112, 0.08) 0 1px 3px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover {
+    box-shadow: rgba(0, 55, 112, 0.08) 0 8px 24px, rgba(0, 55, 112, 0.04) 0 2px 6px;
   }
 
-  /* Card Featured */
+  /* ─── STRIPE FEATURED CARD (deep navy, inverted) ─── */
   .card-featured {
-    background-color: var(--color-canvas-soft);
-    border: 1px solid var(--color-hairline-soft);
-    border-radius: var(--radius-md);
-    padding: 24px;
-    transition: background-color 0.25s ease, border-color 0.25s ease;
+    background-color: #1c1e54;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: rgba(0, 55, 112, 0.08) 0 8px 24px, rgba(0, 55, 112, 0.04) 0 2px 6px;
   }
 
-  /* Container */
+  /* ─── STRIPE CREAM BAND CARD ─── */
+  .card-cream {
+    background-color: #f5e9d4;
+    border: 1px solid #e3e8ee;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: rgba(0, 55, 112, 0.08) 0 1px 3px;
+  }
+
+  /* ─── STRIPE SOFT BAND (canvas-soft) ─── */
+  .card-soft {
+    background-color: #f6f9fc;
+    border: 1px solid #e3e8ee;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: rgba(0, 55, 112, 0.08) 0 1px 3px;
+  }
+
+  /* ─── STRIPE PILL TAG (subdued indigo) ─── */
+  .badge-accent {
+    display: inline-flex;
+    align-items: center;
+    height: 24px;
+    padding: 4px 8px;
+    background-color: #b9b9f9;
+    color: #4434d4;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+    border-radius: 9999px;
+  }
+
+  /* ─── CONTAINERS ─── */
   .container-main {
     width: 100%;
     max-width: var(--container-max);
@@ -323,22 +421,7 @@ html.dark {
     padding-inline: clamp(16px, 4vw, 24px);
   }
 
-  /* Badge */
-  .badge-accent {
-    display: inline-flex;
-    align-items: center;
-    height: 28px;
-    padding: 0 12px;
-    background: var(--gradient-accent);
-    color: #ffffff;
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.33;
-    border-radius: 9999px;
-  }
-
-  /* Section Spacing */
+  /* ─── SECTION SPACING ─── */
   .section {
     padding-block: var(--space-section);
   }
@@ -346,70 +429,92 @@ html.dark {
   .section-lg {
     padding-block: var(--space-section-lg);
   }
+
+  /* ─── STRIPE TEXT INPUT ─── */
+  .input-stripe {
+    width: 100%;
+    height: 40px;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    color: #0d253d;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.4;
+    border: 1px solid #a8c3de;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .input-stripe:focus {
+    border-color: #533afd;
+    box-shadow: 0 0 0 3px rgba(83, 58, 253, 0.12);
+  }
+  .input-stripe::placeholder {
+    color: #64748d;
+    opacity: 0.7;
+  }
 }
 
-/* ── Dark Mode Specific Overrides ── */
-html.dark .card {
-  background-color: #121216;
-  border-color: #23232b;
+/* ── Stripe Gradient Mesh Hero Backdrop ── */
+/* Applied as a layered pseudo-element over the hero section */
+@utility stripe-mesh {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 65%;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(245, 233, 212, 0.9) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 30% 10%, rgba(255, 160, 100, 0.5) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 60% at 55% 5%, rgba(180, 175, 255, 0.6) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 50% at 75% 15%, rgba(83, 58, 253, 0.45) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 45% at 95% 10%, rgba(234, 34, 97, 0.4) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 35% at 85% 30%, rgba(249, 107, 238, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(32px);
+  }
 }
 
-html.dark .card-featured {
-  background-color: #17171e;
-  border-color: #282833;
-}
-
-html.dark #pipeline {
-  background-color: #0d0d12;
-  border: 1px solid #23232b;
-}
-
-html.dark #site-footer {
-  background-color: #060608;
-  border-top: 1px solid #23232b;
-}
-
-html.dark .btn-primary {
-  background-color: #fafafa;
-  color: #09090b;
-  border-color: #fafafa;
-}
-
-html.dark .btn-primary:hover {
-  background-color: #e4e4e7;
-  border-color: #e4e4e7;
-  color: #09090b;
-}
-
-html.dark .btn-outline {
-  border-color: #e4e4e7;
-  color: #fafafa;
-}
-
-html.dark .btn-outline:hover {
-  background-color: #1e1e24;
-  color: #fafafa;
-}
-
-/* ── Utility for gradient text ── */
+/* ── Utility for gradient text (kept for HeroInteractiveEngine) ── */
 @utility gradient-text {
-  background: var(--gradient-accent);
+  background: linear-gradient(90deg, #533afd 0%, #665efd 40%, #ea2261 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ── Utility for gradient border ── */
+/* ── Utility for Stripe indigo gradient border ── */
 @utility gradient-border {
   position: relative;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   background-clip: padding-box;
   &::before {
     content: '';
     position: absolute;
-    inset: -2px;
+    inset: -1px;
     border-radius: inherit;
-    background: var(--gradient-accent);
+    background: linear-gradient(135deg, #533afd, #ea2261);
     z-index: -1;
   }
+}
+
+/* ── Stripe tabular money figure utility ── */
+@utility money-fig {
+  font-feature-settings: "tnum";
+  letter-spacing: -0.42px;
+}
+
+/* ── Stripe eyebrow / micro-cap utility ── */
+@utility eyebrow {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.1px;
+  text-transform: uppercase;
+  font-feature-settings: "ss01";
 }

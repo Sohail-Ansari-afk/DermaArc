@@ -58,42 +58,42 @@ const articles = [
   title="Blog & Clinical Insights"
   description="Proven patient acquisition strategies, local SEO playbooks, and conversion frameworks built exclusively for dermatologists and aesthetic clinics."
 >
-  <!-- Hero -->
-  <section class="section-lg">
-    <div class="container-main text-center">
+  <!-- Hero with Stripe Gradient Mesh -->
+  <section class="stripe-mesh section-lg relative overflow-hidden">
+    <div class="container-main text-center relative z-10">
       <div class="inline-flex items-center gap-2 mb-4">
         <span class="badge-accent">Dermatology Growth Insights</span>
       </div>
-      <h1 class="font-display font-bold text-ink mb-6" style="font-size: clamp(36px, 5vw, 64px); line-height: 1.0;">
+      <h1 class="font-display font-light text-ink mb-6" style="font-size: clamp(36px, 6vw, 56px); letter-spacing: -1.4px; line-height: 1.03; text-wrap: balance;">
         Clinical marketing.<br />
         <span class="gradient-text">Zero fluff.</span>
       </h1>
-      <p class="text-text-muted font-body text-lg font-light max-w-2xl mx-auto">
+      <p class="text-ink-mute font-body font-light text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
         Deep-dive strategies, data-backed playbooks, and regulatory guidance written specifically for Indian skin and hair practices.
       </p>
     </div>
   </section>
 
-  <!-- Featured Article -->
-  <section class="section pt-0">
+  <!-- Featured Article (Stripe Featured Tier Card) -->
+  <section class="section pt-0 bg-canvas">
     <div class="container-main">
-      <div class="card-featured p-8 sm:p-12 max-w-5xl mx-auto group hover:-translate-y-1 transition-all duration-300">
+      <div class="card-featured p-8 sm:p-12 max-w-5xl mx-auto relative overflow-hidden" style="border: 1px solid rgba(255, 255, 255, 0.12);">
         <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="inline-flex items-center h-7 px-3 rounded-full bg-canvas text-ink text-xs font-semibold font-body border border-hairline">
+          <span class="badge-accent" style="background-color: rgba(185, 185, 249, 0.2); color: #b9b9f9;">
             Featured Playbook
           </span>
-          <span class="text-text-faint text-xs font-body">· {articles[0].readTime} · {articles[0].date}</span>
+          <span class="text-slate-300 text-xs font-body font-light">· {articles[0].readTime} · {articles[0].date}</span>
         </div>
-        <h2 class="font-display font-bold text-ink text-2xl sm:text-3xl md:text-4xl mb-4 group-hover:text-primary transition-colors">
-          <a href="/patient-conversion-guide">
+        <h2 class="font-display font-light text-white text-2xl sm:text-3xl md:text-4xl mb-4 leading-tight" style="letter-spacing: -0.64px;">
+          <a href="/patient-conversion-guide" class="hover:text-primary-soft transition-colors">
             {articles[0].title}
           </a>
         </h2>
-        <p class="text-text-muted font-body text-base sm:text-lg leading-relaxed mb-6 max-w-3xl">
+        <p class="text-slate-200 font-body font-light text-base sm:text-lg leading-relaxed mb-8 max-w-3xl">
           {articles[0].excerpt}
         </p>
-        <div class="flex items-center gap-4">
-          <a href="/patient-conversion-guide" class="btn-primary h-11 px-6 text-sm">
+        <div>
+          <a href="/patient-conversion-guide" class="btn-primary">
             Read Free Guide →
           </a>
         </div>
@@ -102,28 +102,28 @@ const articles = [
   </section>
 
   <!-- Articles Grid -->
-  <section class="section bg-canvas-soft">
+  <section class="section-lg bg-canvas-soft border-t border-hairline">
     <div class="container-main">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {articles.slice(1).map((article) => (
-          <article class="card bg-canvas group hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+          <article class="card flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs text-text-muted font-body mb-4">
-                <span class="font-semibold text-ink">{article.category}</span>
-                <span>{article.readTime}</span>
+              <div class="flex items-center justify-between text-xs text-ink-mute font-body mb-4">
+                <span class="eyebrow text-primary-deep">{article.category}</span>
+                <span class="font-light">{article.readTime}</span>
               </div>
-              <h3 class="font-display text-xl font-bold text-ink mb-3 leading-snug group-hover:text-primary transition-colors">
-                <a href="/patient-conversion-guide">
+              <h3 class="font-display font-light text-ink text-xl mb-3 leading-snug" style="letter-spacing: -0.2px;">
+                <a href="/patient-conversion-guide" class="hover:text-primary transition-colors">
                   {article.title}
                 </a>
               </h3>
-              <p class="text-text-muted font-body text-sm leading-relaxed mb-6">
+              <p class="text-ink-secondary font-body font-light text-sm leading-relaxed mb-6">
                 {article.excerpt}
               </p>
             </div>
-            <div class="pt-4 border-t border-hairline-soft flex items-center justify-between">
-              <span class="text-text-faint text-xs font-body">{article.date}</span>
-              <a href="/patient-conversion-guide" class="text-sm font-semibold font-body text-ink group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+            <div class="pt-4 border-t border-hairline flex items-center justify-between text-xs">
+              <span class="text-ink-mute font-light">{article.date}</span>
+              <a href="/patient-conversion-guide" class="text-primary font-normal inline-flex items-center gap-1 hover:text-primary-deep transition-colors">
                 Read article →
               </a>
             </div>
@@ -135,4 +135,3 @@ const articles = [
 
   <CTASection />
 </PageLayout>
-
