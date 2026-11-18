@@ -1,0 +1,224 @@
+---
+// AI-UGC page-specific navbar — matches /ai-ugc section anchors
+const navLinks = [
+  { label: "Sample Reels",       href: "#samples" },
+  { label: "How It Works",       href: "#how-it-works" },
+  { label: "4 Ad Formats",       href: "#four-pillars" },
+  { label: "Calculator",         href: "#calculator" },
+  { label: "Pricing ($99/Video)",href: "#pricing" },
+  { label: "FAQ",                href: "#faq" },
+];
+---
+
+<header
+  id="ugc-site-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="flex items-center justify-between w-full max-w-[1200px] mx-auto px-5 py-3">
+
+    <!-- Logo (left) -->
+    <a href="/" class="flex items-center gap-2.5 shrink-0">
+      <img src="/favicon.svg" alt="DermaArc Logo" class="w-8 h-8 rounded-full object-contain" />
+      <div class="flex flex-col leading-none">
+        <span style="font-weight:300; font-size:16px; color:#0d253d; letter-spacing:-0.3px; line-height:1.1;">DermaArc</span>
+        <span style="font-weight:400; font-size:9px; color:#533afd; letter-spacing:0.6px; text-transform:uppercase; line-height:1.2;">AI UGC Studio</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav Links (center) -->
+    <nav
+      id="ugc-nav-links-desktop"
+      class="hidden xl:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2"
+      aria-label="AI UGC page navigation"
+    >
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="ugc-nav-link px-3 py-1.5 text-[13px] rounded-pill transition-colors duration-200 whitespace-nowrap"
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Desktop CTA (right) -->
+    <div class="hidden lg:flex items-center gap-3">
+      <!-- Primary CTA — scroll to form -->
+      <a href="#claim-form" class="ugc-cta-btn">
+        🎁 Get Your Free UGC Video
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <div class="lg:hidden flex items-center gap-2">
+      <!-- Mobile CTA pill (always visible) -->
+      <a href="#claim-form" class="ugc-cta-btn-sm">Free Video →</a>
+
+      <button
+        id="ugc-mobile-menu-btn"
+        class="flex items-center justify-center w-10 h-10 rounded-lg transition-colors cursor-pointer"
+        style="color:#0d253d;"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg id="ugc-menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="ugc-menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div
+    id="ugc-mobile-menu"
+    class="hidden lg:hidden w-full overflow-y-auto"
+    style="background:#ffffff; border-top:1px solid #e3e8ee; max-height:80vh;"
+  >
+    <div class="max-w-[1200px] mx-auto px-5 py-3 flex flex-col gap-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="ugc-mobile-link px-4 py-3 text-[15px] font-body transition-colors duration-200 min-h-[48px] flex items-center rounded-lg"
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <div class="mt-3 pt-3" style="border-top:1px solid #e3e8ee;">
+        <a href="#claim-form" class="ugc-cta-btn w-full text-center min-h-[48px] flex items-center justify-center">
+          🎁 Claim My Free AI UGC Video
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Transparent on top of gradient mesh, solidifies on scroll */
+  #ugc-site-header {
+    background-color: transparent;
+  }
+  #ugc-site-header.scrolled {
+    background-color: #ffffff;
+    box-shadow: rgba(0, 55, 112, 0.08) 0 1px 3px;
+    border-bottom: 1px solid #e3e8ee;
+  }
+
+  /* Nav links */
+  .ugc-nav-link {
+    font-weight: 300;
+    color: #64748d;
+    border-radius: 9999px;
+  }
+  .ugc-nav-link:hover {
+    color: #0d253d;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Mobile links */
+  .ugc-mobile-link {
+    font-weight: 300;
+    color: #64748d;
+  }
+  .ugc-mobile-link:hover {
+    color: #0d253d;
+    background-color: #f6f9fc;
+  }
+
+  /* Primary CTA button — desktop */
+  .ugc-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 18px;
+    background: linear-gradient(135deg, #533afd 0%, #4434d4 100%);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    border-radius: 9999px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    box-shadow: 0 2px 12px rgba(83,58,253,0.25);
+  }
+  .ugc-cta-btn:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(83,58,253,0.35);
+  }
+
+  /* Compact CTA — mobile only */
+  .ugc-cta-btn-sm {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    background: linear-gradient(135deg, #533afd, #4434d4);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 9999px;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .ugc-cta-btn-sm:hover { opacity: 0.9; }
+</style>
+
+<script>
+  function setupUGCNav() {
+    const menuBtn    = document.getElementById("ugc-mobile-menu-btn");
+    const mobileMenu = document.getElementById("ugc-mobile-menu");
+    const iconOpen   = document.getElementById("ugc-menu-icon-open");
+    const iconClose  = document.getElementById("ugc-menu-icon-close");
+    const header     = document.getElementById("ugc-site-header");
+
+    let isOpen = false;
+
+    function closeMenu() {
+      isOpen = false;
+      mobileMenu?.classList.add("hidden");
+      iconOpen?.classList.remove("hidden");
+      iconClose?.classList.add("hidden");
+      menuBtn?.setAttribute("aria-expanded", "false");
+    }
+
+    menuBtn?.addEventListener("click", () => {
+      isOpen = !isOpen;
+      mobileMenu?.classList.toggle("hidden", !isOpen);
+      iconOpen?.classList.toggle("hidden", isOpen);
+      iconClose?.classList.toggle("hidden", !isOpen);
+      menuBtn?.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    // Close on outside click
+    document.addEventListener("click", (e) => {
+      if (isOpen && !menuBtn?.contains(e.target as Node) && !mobileMenu?.contains(e.target as Node)) {
+        closeMenu();
+      }
+    });
+
+    // Close when any anchor inside the mobile menu is clicked
+    mobileMenu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => closeMenu());
+    });
+
+    // Scroll: transparent → solid white with shadow
+    function handleScroll() {
+      if (window.scrollY > 40) {
+        header?.classList.add("scrolled");
+      } else {
+        header?.classList.remove("scrolled");
+      }
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  setupUGCNav();
+  document.addEventListener("astro:page-load", setupUGCNav);
+</script>
