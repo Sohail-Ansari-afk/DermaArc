@@ -880,69 +880,103 @@ import PageLayout from "../layouts/PageLayout.astro";
           </div>
         </div>
 
-        <!-- Right Column: Form -->
-        <div class="card" style="padding:40px;">
-          <form id="ugc-claim-form" class="flex flex-col gap-5" novalidate>
-            <div class="grid grid-cols-1 gap-5">
+        <!-- Right Column: Web3Forms -->
+        <div class="card" style="padding:32px;">
 
+          <!-- Success State (hidden by default) -->
+          <div id="ugc-success" style="display:none; text-align:center; padding:24px 0;">
+            <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg,#533afd,#4434d4); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:24px;">✓</div>
+            <h3 style="font-size:22px; font-weight:300; color:#0d253d; letter-spacing:-0.44px; margin-bottom:8px;">Application Received!</h3>
+            <p style="font-size:14px; font-weight:300; color:#64748d; line-height:1.6; max-width:320px; margin:0 auto 20px;">
+              Sohail will review your brand and send your free custom AI UGC video via Google Drive within <strong style="color:#0d253d;">48 hours</strong>.
+            </p>
+            <div class="flex flex-wrap gap-2 justify-center">
+              <span style="padding:5px 14px; background:#b9b9f9; color:#4434d4; border-radius:9999px; font-size:11px; font-weight:400;">📦 48-Hour Delivery</span>
+              <span style="padding:5px 14px; background:#b9b9f9; color:#4434d4; border-radius:9999px; font-size:11px; font-weight:400;">🎁 100% Free · No Card</span>
+            </div>
+          </div>
+
+          <!-- The Form -->
+          <form id="ugc-claim-form" class="flex flex-col gap-4" novalidate>
+
+            <!-- Web3Forms hidden fields -->
+            <input type="hidden" name="access_key" value="33205b6d-5a34-41f2-8e33-e9b48fee813f" />
+            <input type="hidden" name="subject" value="🎁 New AI-UGC Free Video Request — DermaArc" />
+            <input type="hidden" name="from_name" value="DermaArc AI-UGC Form" />
+            <input type="checkbox" name="botcheck" style="display:none;" />
+
+            <!-- Row 1: Name + Email (2-col on md+) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label for="ugc-name" style="display:block; font-size:13px; font-weight:400; color:#273951; margin-bottom:6px; letter-spacing:0.01em;">Your Name &amp; Role *</label>
-                <input id="ugc-name" name="name" type="text" required placeholder="e.g. Sarah — Brand Manager at GlowLab" class="input-stripe" />
+                <label for="ugc-name" style="display:block; font-size:12px; font-weight:400; color:#273951; margin-bottom:5px;">Name *</label>
+                <input id="ugc-name" name="name" type="text" required placeholder="Sarah, Brand Manager" class="input-stripe" />
               </div>
-
               <div>
-                <label for="ugc-url" style="display:block; font-size:13px; font-weight:400; color:#273951; margin-bottom:6px; letter-spacing:0.01em;">Brand Website / Hero Product URL *</label>
-                <input id="ugc-url" name="url" type="url" required placeholder="https://yourstore.com/product" class="input-stripe" />
-                <p style="font-size:11px; color:#64748d; margin-top:4px;">Only verified skincare, beauty &amp; wellness brands qualify.</p>
+                <label for="ugc-email" style="display:block; font-size:12px; font-weight:400; color:#273951; margin-bottom:5px;">Email *</label>
+                <input id="ugc-email" name="email" type="email" required placeholder="you@brand.com" class="input-stripe" />
               </div>
+            </div>
 
+            <!-- Row 2: Phone + Country (2-col on md+) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label for="ugc-email" style="display:block; font-size:13px; font-weight:400; color:#273951; margin-bottom:6px; letter-spacing:0.01em;">Work Email *</label>
-                <input id="ugc-email" name="email" type="email" required placeholder="you@yourbrand.com" class="input-stripe" />
-              </div>
-
-              <div>
-                <label for="ugc-phone" style="display:block; font-size:13px; font-weight:400; color:#273951; margin-bottom:6px; letter-spacing:0.01em;">WhatsApp / Phone Number *</label>
+                <label for="ugc-phone" style="display:block; font-size:12px; font-weight:400; color:#273951; margin-bottom:5px;">WhatsApp / Phone *</label>
                 <input id="ugc-phone" name="phone" type="tel" required placeholder="+1 555 000 0000" class="input-stripe" />
-                <p style="font-size:11px; color:#64748d; margin-top:4px;">For fast Google Drive link delivery.</p>
               </div>
-
               <div>
-                <label for="ugc-style" style="display:block; font-size:13px; font-weight:400; color:#273951; margin-bottom:6px; letter-spacing:0.01em;">Which AI Persona Style Do You Want? *</label>
-                <select id="ugc-style" name="style" required class="input-stripe" style="height:40px; cursor:pointer;">
-                  <option value="" disabled selected>Choose your format…</option>
-                  <option value="silent">Consumer Silent Reaction Hook (Bathroom / Bedroom iPhone Selfie)</option>
-                  <option value="clinical">Clinical White-Coat / Dermatologist Authority Hook</option>
-                  <option value="hybrid">Hybrid Hook + Product Texture B-Roll Mashup</option>
-                  <option value="auto">Surprise Me (Pick What Converts Best for My SKU)</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="ugc-country" style="display:block; font-size:13px; font-weight:400; color:#273951; margin-bottom:6px; letter-spacing:0.01em;">Target Country *</label>
+                <label for="ugc-country" style="display:block; font-size:12px; font-weight:400; color:#273951; margin-bottom:5px;">Market *</label>
                 <select id="ugc-country" name="country" required class="input-stripe" style="height:40px; cursor:pointer;">
-                  <option value="" disabled selected>Select your market…</option>
+                  <option value="" disabled selected>Select…</option>
                   <option value="us">🇺🇸 United States</option>
                   <option value="uk">🇬🇧 United Kingdom</option>
                   <option value="au">🇦🇺 Australia</option>
                   <option value="other">🌍 Other</option>
                 </select>
               </div>
-
-              <div>
-                <label for="ugc-broll" style="display:block; font-size:13px; font-weight:400; color:#273951; margin-bottom:6px; letter-spacing:0.01em;">Link to Product B-Roll / Drive Folder (Optional)</label>
-                <input id="ugc-broll" name="broll" type="url" placeholder="https://drive.google.com/..." class="input-stripe" />
-              </div>
-
             </div>
 
-            <button type="submit" class="btn-primary" style="font-size:17px; padding:16px 28px; height:auto; justify-content:center;">
-              Claim My 1 Free AI UGC Video ($0) →
+            <!-- Row 3: Product URL (full width) -->
+            <div>
+              <label for="ugc-url" style="display:block; font-size:12px; font-weight:400; color:#273951; margin-bottom:5px;">Brand / Product URL *</label>
+              <input id="ugc-url" name="product_url" type="url" required placeholder="https://yourstore.com/hero-product" class="input-stripe" />
+            </div>
+
+            <!-- Row 4: Format style (full width) -->
+            <div>
+              <label for="ugc-style" style="display:block; font-size:12px; font-weight:400; color:#273951; margin-bottom:5px;">AI Video Style *</label>
+              <select id="ugc-style" name="video_style" required class="input-stripe" style="height:40px; cursor:pointer;">
+                <option value="" disabled selected>Choose your format…</option>
+                <option value="silent">📱 Silent Reaction Hook (iPhone Selfie)</option>
+                <option value="clinical">🥼 Clinical / Dermatologist Authority Hook</option>
+                <option value="hybrid">🎬 Hybrid Hook + Product B-Roll Mashup</option>
+                <option value="auto">✨ Surprise Me — Best for My SKU</option>
+              </select>
+            </div>
+
+            <!-- Error message -->
+            <p id="ugc-form-error" style="display:none; font-size:12px; color:#ea2261; text-align:center;"></p>
+
+            <!-- Submit -->
+            <button
+              id="ugc-submit-btn"
+              type="submit"
+              class="btn-primary"
+              style="font-size:16px; padding:14px 24px; height:auto; justify-content:center; width:100%; margin-top:4px;"
+            >
+              <span id="ugc-btn-text">Claim My Free AI UGC Video ($0) →</span>
+              <span id="ugc-btn-loading" style="display:none;">
+                <svg style="width:18px; height:18px; animation:spin 0.8s linear infinite;" fill="none" viewBox="0 0 24 24">
+                  <circle style="opacity:0.25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path style="opacity:0.75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                </svg>
+                Submitting…
+              </span>
             </button>
 
-            <p style="font-size:12px; font-weight:300; color:#64748d; text-align:center; line-height:1.5;">
-              No credit card required for your 1st free video · 48-hour delivery · Built for US, UK &amp; AU brands
+            <p style="font-size:11px; font-weight:300; color:#64748d; text-align:center; line-height:1.5; margin-top:2px;">
+              No credit card · 48-hour delivery · US, UK &amp; AU brands only
             </p>
+
           </form>
         </div>
 
@@ -1024,9 +1058,9 @@ import PageLayout from "../layouts/PageLayout.astro";
     border-color: #533afd !important;
   }
 
-  /* Form submission success state */
-  #ugc-claim-form.submitted {
-    display: none;
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
   }
 </style>
 
@@ -1112,25 +1146,55 @@ import PageLayout from "../layouts/PageLayout.astro";
 
   function setupUGCForm() {
     const form = document.getElementById("ugc-claim-form") as HTMLFormElement;
-    form?.addEventListener("submit", (e) => {
+    const successEl = document.getElementById("ugc-success");
+    const submitBtn = document.getElementById("ugc-submit-btn") as HTMLButtonElement;
+    const btnText = document.getElementById("ugc-btn-text");
+    const btnLoading = document.getElementById("ugc-btn-loading");
+    const errorEl = document.getElementById("ugc-form-error");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      // Show success message
-      const card = form.closest(".card") as HTMLElement;
-      if (card) {
-        form.style.display = "none";
-        card.innerHTML = `
-          <div style="text-align:center; padding:40px 20px; display:flex; flex-direction:column; align-items:center; gap:16px;">
-            <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,#533afd,#4434d4); display:flex; align-items:center; justify-content:center; font-size:28px;">✓</div>
-            <h3 style="font-size:24px; font-weight:300; color:#0d253d; letter-spacing:-0.48px; line-height:1.2;">Application Received!</h3>
-            <p style="font-size:15px; font-weight:300; color:#64748d; line-height:1.6; max-width:360px;">
-              Sohail and the DermaArc team will review your brand and reach out via WhatsApp/email within a few hours with your free custom AI UGC video.
-            </p>
-            <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center;">
-              <span style="display:inline-flex; padding:6px 14px; background:#b9b9f9; color:#4434d4; border-radius:9999px; font-size:12px; font-weight:400;">📦 48-Hour Delivery</span>
-              <span style="display:inline-flex; padding:6px 14px; background:#b9b9f9; color:#4434d4; border-radius:9999px; font-size:12px; font-weight:400;">🎁 100% Free · No Card Needed</span>
-            </div>
-          </div>
-        `;
+
+      // Basic HTML5 validation check
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      // Show loading state
+      if (btnText) btnText.style.display = "none";
+      if (btnLoading) btnLoading.style.display = "inline-flex";
+      if (submitBtn) submitBtn.disabled = true;
+      if (errorEl) errorEl.style.display = "none";
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Show success, hide form
+          form.style.display = "none";
+          if (successEl) successEl.style.display = "block";
+        } else {
+          throw new Error(result.message || "Submission failed.");
+        }
+      } catch (err: any) {
+        // Show error inline
+        if (errorEl) {
+          errorEl.textContent = "Something went wrong. Please try again or email official@dermaarc.com.";
+          errorEl.style.display = "block";
+        }
+        // Reset button
+        if (btnText) btnText.style.display = "inline";
+        if (btnLoading) btnLoading.style.display = "none";
+        if (submitBtn) submitBtn.disabled = false;
       }
     });
   }
